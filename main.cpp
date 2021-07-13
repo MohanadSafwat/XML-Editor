@@ -14,6 +14,8 @@
 
 using namespace std;
 
+int iBeautify = 0 ;
+
 struct Node
 {
     string key;
@@ -26,42 +28,64 @@ struct Node
 
 class GeneralTree{
     Node* root;
+
 public:
+    vector<string> start;
     Node* nodePointer = nullptr ;
     
 
     GeneralTree();
     void newNode(Node* &node, bool rootCheck);
-//    void LevelOrderTraversal(Node * root)
-//    {
-//        if (root==NULL)
-//            return;
-//
-//        // Standard level order traversal code
-//        // using queue
-//        queue<Node *> q; // Create a queue
-//        q.push(root); // Enqueue root
-//        while (!q.empty())
-//        {
-//            int n = q.size();
-//
-//            // If this node has children
-//            while (n > 0)
-//            {
-//                // Dequeue an item from queue and print it
-//                Node * p = q.front();
-//                q.pop();
-//                cout << p->key << " ";
-//
-//                // Enqueue all children of the dequeued item
-//                for (int i=0; i<p->child.size(); i++)
-//                    q.push(p->child[i]);
-//                n--;
-//            }
-//
-//            cout << endl; // Print new line between two levels
-//        }
-//    }
+    void beautify(){
+        vector<string>::iterator it = start.begin();
+        int size = start.size();
+        for (it; it != start.end() ; it++) {
+            cout<<*it;
+            size--;
+            if(size != 0)
+                cout<<endl;
+            
+        }
+
+        beautifyPriv(this->root);
+    }
+    void beautifyPriv(Node* node)
+    {
+        Node* tmp = node;
+        Node* nodePointerBeautify =tmp;
+        if (tmp==NULL)
+            return;
+
+        cout<<endl<<string(iBeautify,'\t')<<"<"<<tmp->key<<">"<<tmp->value;
+        iBeautify++;
+        vector<Node *>::iterator it = (tmp->child).begin();
+        int size = tmp->child.size();
+       
+        if(size != 0)
+        {
+            while(size != 0)
+            {
+            beautifyPriv(*it);
+                it++;
+                size--;
+                iBeautify--;
+                
+                
+            }
+            cout<<endl<<string(iBeautify-1,'\t')<<"</"<<tmp->key<<">";
+
+        }
+        else
+        {
+            cout<<"</"<<tmp->key<<">";
+            nodePointerBeautify = nodePointerBeautify->parent;
+           
+                
+
+        }
+
+        }
+
 };
 
 GeneralTree::GeneralTree(){
@@ -81,9 +105,6 @@ void GeneralTree::newNode(Node* &node,bool rootCheck)
     if(rootCheck)
         this->root = tmp;
    
-
-
- 
 
 }
 
@@ -105,11 +126,20 @@ int main()
 
 //    <employees><employee><id>1</id><firstName>Leonardo</firstName><lastName>DiCaprio</lastName><photo>http://1.bp.blogspot.com/-zvS_6Q1IzR8/T5l6qvnRmcI/AAAAAAAABcc/HXO7HDEJKo0/s200/Leonardo+Dicaprio7.jpg</photo></employee><employee><id>2</id><firstName>Johnny</firstName><lastName>Depp</lastName><photo>http://4.bp.blogspot.com/_xR71w9-qx9E/SrAz--pu0MI/AAAAAAAAC38/2ZP28rVEFKc/s200/johnny-depp-pirates.jpg</photo></employee><employee><id>3</id><firstName>Hritik</firstName><lastName>Roshan</lastName><photo>http://thewallmachine.com/files/1411921557.jpg</photo></employee></employees>
     
-    cin>>xmlCode;
-
+    xmlCode = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><employees><employee><id>1</id><firstName>Leonardo</firstName><lastName>DiCaprio</lastName><photo>http://1.bp.blogspot.com/-zvS_6Q1IzR8/T5l6qvnRmcI/AAAAAAAABcc/HXO7HDEJKo0/s200/Leonardo+Dicaprio7.jpg</photo></employee><employee><id>2</id><firstName>Johnny</firstName><lastName>Depp</lastName><photo>http://4.bp.blogspot.com/_xR71w9-qx9E/SrAz--pu0MI/AAAAAAAAC38/2ZP28rVEFKc/s200/johnny-depp-pirates.jpg</photo></employee><employee><id>3</id><firstName>Hritik</firstName><lastName>Roshan</lastName><photo>http://thewallmachine.com/files/1411921557.jpg</photo></employee></employees>";
+ 
     bool rootTag = true;
     for(int i = 0 ; i< xmlCode.length(); i++)
     {
+        if(xmlCode[i] == '<' && xmlCode[i+1] == '?')
+        {
+            int endTag;
+            string startValue;
+            endTag = xmlCode.find('>',i);
+            startValue = xmlCode.substr(i, endTag +1);
+            i = endTag;
+            tree.start.push_back(startValue);
+        }
         if (xmlCode[i] == '<' && xmlCode[i+1] != '/')
         {
             int endTag;
@@ -158,6 +188,7 @@ int main()
         
     }
 
-
+    tree.beautify();
+    cout<<endl;
     return 0;
 }
