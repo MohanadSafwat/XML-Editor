@@ -53,33 +53,10 @@ do
     getline(cin,xx) ;
     x+=xx;
 
-  /*  if(x.find("<!--")!=-1)
-    {
-        y=x.find("!")-1;
-        z=y;
-        while(x[z]!='>')
-        {
-            z++;
-        }
-        x=x.erase(y,(z-y+1));
-    }*/
 
 }while(xx !="q");
 string zezo=Minify(x);
-    /* int k = 0;
-            for(int i=0 ; i< x.length() ; i++)
-            {
-                if(x[i]=='>'&&x[i+1]==' ')
-                {
-                    k = i;
-                    while (x[k] != '<')
-                    {
-                        k++;
-                    }
-                    x = x.erase(i+1, (k - i-1));
-                }
-            }*/
-//cout<<zezo;
-//cout<<endl<<i<<endl<<k;
+
+cout<<zezo;
     return 0;
 }
