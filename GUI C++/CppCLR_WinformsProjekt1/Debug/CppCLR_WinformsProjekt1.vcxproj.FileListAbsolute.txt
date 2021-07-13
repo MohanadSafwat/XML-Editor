@@ -1,0 +1,4 @@
+C:\Users\mosta\OneDrive\Desktop\GUI C++\CppCLR_WinformsProjekt1\Debug\CppCLR_WinformsProjekt1.vcxprojAssemblyReference.cache
+C:\Users\mosta\OneDrive\Desktop\GUI C++\CppCLR_WinformsProjekt1\Debug\CppCLR_WinformsProjekt1.Form1.resources
+C:\Users\mosta\OneDrive\Desktop\GUI C++\CppCLR_WinformsProjekt1\Debug\CppCLR_WinformsProjekt1.vcxproj.GenerateResource.cache
+C:\Users\mosta\OneDrive\Desktop\GUI C++\CppCLR_WinformsProjekt1\Debug\CppCLR_WinformsProjekt1.vcxproj.CopyComplete

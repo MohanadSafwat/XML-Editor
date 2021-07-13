@@ -1,0 +1,7 @@
+﻿  CppCLR_WinformsProjekt.cpp
+C:\Users\mosta\OneDrive\Desktop\GUI C++\CppCLR_WinformsProjekt1\Form1.h(244,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\mosta\OneDrive\Desktop\GUI C++\CppCLR_WinformsProjekt1\Form1.h(261,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\mosta\OneDrive\Desktop\GUI C++\CppCLR_WinformsProjekt1\Form1.h(346,8): warning C4101: 'f': unreferenced local variable
+C:\Users\mosta\OneDrive\Desktop\GUI C++\CppCLR_WinformsProjekt1\Form1.h(370,8): warning C4101: 'f': unreferenced local variable
+  AssemblyInfo.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  CppCLR_WinformsProjekt1.vcxproj -> C:\Users\mosta\OneDrive\Desktop\GUI C++\Debug\CppCLR_WinformsProjekt1.exe
