@@ -11,7 +11,7 @@ int iBeautify = 0 ;
 int counter = 0;
 int counter2 = 0;
 bool checker=false;
-bool endChecker = false;
+stringstream json;
 string prevTag = "";
 vector<string> tmpTag;
 
@@ -121,32 +121,33 @@ public:
     /*JSON Convert*/
 
 
-    void convertJson(){
-        cout<<"{";
+    string convertJson(){
 
+        json<<"{";
         convertJsonPriv(this->root);
-
-        cout<<endl<<"}"<<endl;
+        json<<endl<<"}"<<endl;
+        return json.str();
     }
-    void convertJsonPriv(Node* node)
+    string convertJsonPriv(Node* node)
     {
+        stringstream ss;
         Node* tmp = node;
         Node* nodePointerBeautify =tmp;
         int tmpCounter;
         if (tmp==NULL)
-            return;
+            return 0;
 
 
         //cout<<"---"<<prevTag;
         if(tmp->key != prevTag){
-            cout<<endl<<string(iBeautify+1,'\t')<<"\""<<tmp->key<<"\":";
+            json<<endl<<string(iBeautify+1,'\t')<<"\""<<tmp->key<<"\":";
 
         }
         if( tmp!=root && counter < tmp->parent->child.size()-1 &&tmp->key == tmp->parent->child[counter+1]->key && tmp->key != prevTag){
-            cout<<"[";
+            json<<"[";
             prevTag = tmp->key;
             checker = true;
-            endChecker = true;
+
 
         }
         else{
@@ -155,7 +156,7 @@ public:
 
         if((tmp->child).size() != 0){
 
-            cout<<"{"<<tmp->value;
+            json<<"{"<<tmp->value;
             tmpCounter = counter;
             counter = 0;
             tmpTag.push_back(prevTag);
@@ -163,11 +164,11 @@ public:
 
         }else{
 
-            cout<<"\""<<tmp->value<<"\"";
+            json<<"\""<<tmp->value<<"\"";
             //cout<<counter<<"     "<<(tmp->parent->child).size() ;
             if(counter != (tmp->parent->child).size()-1 ){
-                if(tmp->key ==prevTag && counter == (tmp->parent->child).size()-2)  cout<<"]";
-                cout<<",";
+                if(tmp->key ==prevTag && counter == (tmp->parent->child).size()-2)  json<<"]";
+                json<<",";
 
                 counter++;
             }
@@ -187,20 +188,20 @@ public:
                 size--;
                 iBeautify--;
             }
-            cout<<endl<<string(iBeautify,'\t')<<"}";
+            json<<endl<<string(iBeautify,'\t')<<"}";
 
             counter = tmpCounter+1;
             prevTag = tmpTag[tmpTag.size()-1];
             tmpTag.pop_back();
-            if(tmp->key ==prevTag && counter == (tmp->parent->child).size()) cout<<"]";
+            if(tmp->key ==prevTag && counter == (tmp->parent->child).size()) ss<<"]";
             if(nodePointerBeautify != root )
                 if(counter2 != (nodePointerBeautify->parent->child).size()-1 && nodePointerBeautify->parent == root){
                     //cout<<counter2 <<"    " << (nodePointerBeautify->parent->child).size()<< "   " << (nodePointerBeautify->parent == root) ;
-                    cout<<",";
+                    json<<",";
 
                     counter2++;
                 }else if(counter < (tmp->parent->child).size()){
-                    cout<<",";
+                    json<<",";
 
                 }
         }
@@ -208,7 +209,8 @@ public:
         {
             nodePointerBeautify = nodePointerBeautify->parent;
         }
-
+        //cout<<ss.str();
+        return json.str();
     }
 
 };
@@ -338,8 +340,11 @@ int main()
 
     }
 
-    tree.beautify();
-    tree.convertJson();
+    //tree.beautify();
+
+
+
+    cout<<tree.convertJson();
     cout<<endl;
     return 0;
 }
