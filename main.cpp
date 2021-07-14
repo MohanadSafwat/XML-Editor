@@ -10,6 +10,10 @@ using namespace std;
 int iBeautify = 0 ;
 int counter = 0;
 int counter2 = 0;
+bool checker=false;
+bool endChecker = false;
+string prevTag = "";
+vector<string> tmpTag;
 
 static inline void ltrim(string &s) {
     s.erase(s.begin(), find_if(s.begin(), s.end(), [](unsigned char ch) {
@@ -133,20 +137,38 @@ public:
             return;
 
 
-        cout<<endl<<string(iBeautify+1,'\t')<<"\""<<tmp->key<<"\":";
+        //cout<<"---"<<prevTag;
+        if(tmp->key != prevTag){
+            cout<<endl<<string(iBeautify+1,'\t')<<"\""<<tmp->key<<"\":";
+
+        }
+        if( tmp!=root && counter < tmp->parent->child.size()-1 &&tmp->key == tmp->parent->child[counter+1]->key && tmp->key != prevTag){
+            cout<<"[";
+            prevTag = tmp->key;
+            checker = true;
+            endChecker = true;
+
+        }
+        else{
+            checker = false;
+        }
 
         if((tmp->child).size() != 0){
 
             cout<<"{"<<tmp->value;
             tmpCounter = counter;
             counter = 0;
+            tmpTag.push_back(prevTag);
+            prevTag = "";
 
         }else{
 
             cout<<"\""<<tmp->value<<"\"";
             //cout<<counter<<"     "<<(tmp->parent->child).size() ;
             if(counter != (tmp->parent->child).size()-1 ){
+                if(tmp->key ==prevTag && counter == (tmp->parent->child).size()-2)  cout<<"]";
                 cout<<",";
+
                 counter++;
             }
         }
@@ -166,15 +188,20 @@ public:
                 iBeautify--;
             }
             cout<<endl<<string(iBeautify,'\t')<<"}";
-            counter = tmpCounter+1;
 
+            counter = tmpCounter+1;
+            prevTag = tmpTag[tmpTag.size()-1];
+            tmpTag.pop_back();
+            if(tmp->key ==prevTag && counter == (tmp->parent->child).size()) cout<<"]";
             if(nodePointerBeautify != root )
                 if(counter2 != (nodePointerBeautify->parent->child).size()-1 && nodePointerBeautify->parent == root){
                     //cout<<counter2 <<"    " << (nodePointerBeautify->parent->child).size()<< "   " << (nodePointerBeautify->parent == root) ;
                     cout<<",";
+
                     counter2++;
                 }else if(counter < (tmp->parent->child).size()){
                     cout<<",";
+
                 }
         }
         else
@@ -311,7 +338,7 @@ int main()
 
     }
 
-    //tree.beautify();
+    tree.beautify();
     tree.convertJson();
     cout<<endl;
     return 0;
