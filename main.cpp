@@ -127,6 +127,75 @@ public:
     }
 
 
+    string minify(){
+        iBeautify = 0 ;
+        return_string="";
+        string returnString2;
+        vector<string>::iterator it = start.begin();
+        int size = start.size();
+        for (it; it != start.end() ; it++) {
+            returnString2+=*it;
+            size--;
+            if(size != 0)
+                returnString2+='\n';
+
+        }
+
+        returnString2+=minifyPriv(this->root);
+        return  returnString2;
+        
+    }
+    string minifyPriv(Node* node)
+    {
+        Node* tmp = node;
+        Node* nodePointerBeautify =tmp;
+        if (tmp==NULL)
+        {
+            return "";
+        }
+        string att;
+
+//        ve<string,string>::iterator itAttr = tmp->attr.begin();
+//        while(itAttr != tmp->attr.end())
+//        {
+//            att+=" ";
+//            att += itAttr->first;
+//            att+="=";
+//            att += itAttr->second;
+//            itAttr++;
+//        }
+
+
+        return_string+="<"+tmp->key+tmp->attr+">"+tmp->value;
+        att="";
+        iBeautify++;
+        vector<Node *>::iterator it = (tmp->child).begin();
+        int size = tmp->child.size();
+
+        if(size != 0)
+        {
+            while(size != 0)
+            {
+            minifyPriv(*it);
+                it++;
+                size--;
+                iBeautify--;
+
+
+            }
+            return_string+="</"+nodePointerBeautify->key+">";
+
+        }
+        else
+        {
+            return_string+="</"+tmp->key+">";
+            nodePointerBeautify = nodePointerBeautify->parent;
+
+
+        }
+        return return_string;
+
+    }
 
     /*JSON Convert*/
 
@@ -432,9 +501,9 @@ int main()
     cout<< tree.beautify();
 
 
-    cout<<tree.convertJson();
+    cout<<tree.minify();
 
-    cout<<tree.convertJson();
+//    cout<<tree.convertJson();
     cout<<endl;
     return 0;
 }
