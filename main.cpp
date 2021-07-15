@@ -39,7 +39,7 @@ struct Node
 {
     string key;
     string value;
-    map<string,string> attr;
+    string attr;
     vector<Node*> child;
     Node* parent;
 
@@ -84,18 +84,18 @@ public:
         }
         string att;
 
-        map<string,string>::iterator itAttr = tmp->attr.begin();
-        while(itAttr != tmp->attr.end())
-        {
-            att+=" ";
-            att += itAttr->first;
-            att+="=";
-            att += itAttr->second;
-            itAttr++;
-        }
+//        ve<string,string>::iterator itAttr = tmp->attr.begin();
+//        while(itAttr != tmp->attr.end())
+//        {
+//            att+=" ";
+//            att += itAttr->first;
+//            att+="=";
+//            att += itAttr->second;
+//            itAttr++;
+//        }
 
 
-        return_string+='\n'+string(iBeautify,'\t')+"<"+tmp->key+att+">"+tmp->value;
+        return_string+='\n'+string(iBeautify,'\t')+"<"+tmp->key+tmp->attr+">"+tmp->value;
         att="";
         iBeautify++;
         vector<Node *>::iterator it = (tmp->child).begin();
@@ -254,7 +254,9 @@ GeneralTree createTree(string xmlCode){
 
     string segment;
     stringstream ss;
-    map<string, string> att;
+    vector<string> att;
+    string attr;
+
     
     bool rootTag = true;
     for(int i = 0 ; i< xmlCode.length(); i++)
@@ -271,7 +273,7 @@ GeneralTree createTree(string xmlCode){
         if (xmlCode[i] == '<' && xmlCode[i+1] != '/')
         {
             int endTag;
-            int equalCheck;
+//            int equalCheck;
             string tagNameAttr;
             string tagName;
             endTag = xmlCode.find('>',i);
@@ -280,77 +282,90 @@ GeneralTree createTree(string xmlCode){
             string segment;
             vector<string> seglist;
 
-            equalCheck = xmlCode.find('=',i);
-            if (equalCheck > endTag)
-                equalCheck =-1;
+//            equalCheck = xmlCode.find('=',i);
+//            if (equalCheck > endTag)
+//                equalCheck =-1;
             
-            if(equalCheck != -1)
-            {
-                while(getline(ss, segment, '='))
-                {
-                   seglist1.push_back(segment);
-                }
-                
-                vector<string>::iterator it = seglist1.begin();
-                while(it != seglist1.end())
-                {
-                    stringstream ss2(*it);
-                    string segment2;
-                while(getline(ss2, segment2, ' '))
-                {
-                   seglist2.push_back(segment2);
-                }
-                    
-                    it++;
-
-                }
-                vector<string>::iterator it2 = seglist2.begin();
-                tagName = *it2;
-                it2++;
-                while(it2 != seglist2.end())
-                {
-                    att.insert(pair<string,string>(*it2,*(++it2)));
-                    it2++;
-                }
-                
-                  
-            }
-            else{
+//            if(equalCheck != -1)
+//            {
+//                while(getline(ss, segment, '='))
+//                {
+//                   seglist1.push_back(segment);
+//                }
+//
+//                vector<string>::iterator it = seglist1.begin();
+//                while(it != seglist1.end())
+//                {
+//                    stringstream ss2(*it);
+//                    string segment2;
+//                while(getline(ss2, segment2, ' '))
+//                {
+//                   seglist2.push_back(segment2);
+//                }
+//
+//                    it++;
+//
+//                }
+//                vector<string>::iterator it2 = seglist2.begin();
+//                tagName = *it2;
+//                it2++;
+//                while(it2 != seglist2.end())
+//                {
+//                    att.insert(pair<string,string>(*it2,*(++it2)));
+//                    it2++;
+//                }
+//
+//
+//            }
+//            else{
 
             while(getline(ss, segment, ' '))
             {
-               seglist1.push_back(segment);
+               seglist.push_back(segment);
             }
-            vector<string>::iterator it = seglist1.begin();
+            vector<string>::iterator it = seglist.begin();
             tagName = *it;
             it++;
-            while(it != seglist1.end())
+            
+            while(it != seglist.end())
             {
-                att.insert(pair<string,string>(*it,*(++it)));
+                att.push_back(*it);
                 it++;
 
             }
-                
+            vector<string>::iterator it2 = att.begin();
+
+            
+            while(it2 != att.end())
+            {
+                attr+=" ";
+                attr += *it2;
+         
+                it2++;
             }
+                
+//            }
 
             Node* node = new Node;
 
             node->key = tagName;
-            node->attr = att;
+            node->attr = attr;
             i = endTag;
             if (rootTag)
             {
                 tree.newNode(node, true);
                 rootTag = false;
-                seglist1.clear();
-                seglist2.clear();
+                seglist.clear();
+//                seglist2.clear();
                 att.clear();
+                attr = "";
             }
             else
             {
                 tree.newNode(node, false);
-                seglist1.clear();
-                seglist2.clear();
+                seglist.clear();
+//                seglist2.clear();
+                attr = "";
 
                 att.clear();
             }
@@ -413,9 +428,8 @@ int main()
     tree = createTree(xmlCode);
  
 
-//   cout<< tree.beautify();
-//    cout<< tree.beautify();
-
+   cout<< tree.beautify();
+    cout<< tree.beautify();
 
 
     cout<<tree.convertJson();
