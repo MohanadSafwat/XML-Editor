@@ -5,7 +5,6 @@
 #include <sstream>
 #include <fstream>
 #include <map>
-#include <bits/stdc++.h>
 using namespace std;
 
 int iBeautify = 0 ;
@@ -361,6 +360,8 @@ GeneralTree createTree(string xmlCode){
     vector<string> att;
     string attr;
 
+    xmlCode.erase(std::remove(xmlCode.begin(), xmlCode.end(), '\n'), xmlCode.end());
+    xmlCode.erase(std::remove(xmlCode.begin(), xmlCode.end(), '\n'), xmlCode.end());
 
     bool rootTag = true;
     for(int i = 0 ; i< xmlCode.length(); i++)
@@ -513,7 +514,7 @@ int main()
 
 
     string allFile;
-    ifstream file("C:\\Users\\ju\\Desktop\\xml.txt");
+    ifstream file("/Users/mohanadsafwat/Downloads/data-sample.xml");
     copy( istream_iterator<char>{ file >> noskipws }, {}, back_inserter( allFile ) );
     file.close();
 
@@ -532,12 +533,12 @@ int main()
     tree = createTree(xmlCode);
 
 
-    //cout<< tree.beautify();
+    cout<< tree.beautify();
 
 
-    //cout<<tree.minify();
+//    cout<<tree.minify();
 
-    cout<<tree.convertJson();
+//    cout<<tree.convertJson();
     cout<<endl;
     return 0;
 }
