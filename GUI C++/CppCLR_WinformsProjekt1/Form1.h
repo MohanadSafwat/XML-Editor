@@ -2,7 +2,8 @@
 //#include "stdafx.h"
 #include <string>
 
-namespace CppCLRWinformsProjekt {
+namespace xml_editor
+{
 	//using std::string;
 	using namespace std;
 	using namespace System;
@@ -255,7 +256,7 @@ namespace CppCLRWinformsProjekt {
 				}
 
 			}
-			x.erase(std::remove(x.begin(), x.end(), '\n'), x.end());
+			//x.erase(std::remove(x.begin(), x.end(), '\n'), x.end());
 			bool flag = false;
 			int k = 0;
 			for (int i = 0; i < x.length(); i++)

@@ -1,0 +1,2182 @@
+  FastColoredTextBoxNS.FastColoredTextBox.resources - Embedded, ContainedInManifestFile, 
+  FastColoredTextBoxNS.FindForm.resources - Embedded, ContainedInManifestFile, 
+  FastColoredTextBoxNS.GoToForm.resources - Embedded, ContainedInManifestFile, 
+  FastColoredTextBoxNS.HotkeysEditorForm.resources - Embedded, ContainedInManifestFile, 
+  FastColoredTextBoxNS.ReplaceForm.resources - Embedded, ContainedInManifestFile, 
+ImageRuntimeVersion: v2.0.50727
+Assembly FastColoredTextBox, Version=2.16.26.0, Culture=neutral, PublicKeyToken=fb8aa12b994ef61b: 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Class FastColoredTextBoxNS.AutocompleteItem: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, Int32, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, Int32, System.String, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.String Text : Public
+    Int32 ImageIndex : Public
+    System.Object Tag : Public
+  Properties:
+    FastColoredTextBoxNS.AutocompleteMenu Parent 'get set' : 
+    System.String ToolTipTitle 'get set' : 
+    System.String ToolTipText 'get set' : 
+    System.String MenuText 'get set' : 
+    System.Drawing.Color ForeColor 'get set' : 
+    System.Drawing.Color BackColor 'get set' : 
+  Methods:
+    get_Parent(): PrivateScope, Public, HideBySig, SpecialName
+    GetTextForReplace(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Compare(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+    OnSelected(AutocompleteMenu, SelectedEventArgs): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    get_ToolTipTitle(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_ToolTipTitle(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_ToolTipText(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_ToolTipText(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_MenuText(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_MenuText(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_ForeColor(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_ForeColor(Color): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_BackColor(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_BackColor(Color): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+Struct FastColoredTextBoxNS.CompareResult: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    FastColoredTextBoxNS.CompareResult Hidden = 0 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.CompareResult Visible = 1 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.CompareResult VisibleAndSelected = 2 : Public, Static, Literal, HasDefault
+Class FastColoredTextBoxNS.SnippetAutocompleteItem: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.AutocompleteItem
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+    GetTextForReplace(): PrivateScope, Public, Virtual, HideBySig
+    OnSelected(AutocompleteMenu, SelectedEventArgs): PrivateScope, Public, Virtual, HideBySig
+    Compare(String): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.MethodAutocompleteItem: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.AutocompleteItem
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Compare(String): PrivateScope, Public, Virtual, HideBySig
+    GetTextForReplace(): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.SuggestItem: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.AutocompleteItem
+    Void .ctor(System.String, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Compare(String): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.AutocompleteMenu: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.ToolStripDropDown
+    Void .ctor(FastColoredTextBoxNS.FastColoredTextBox): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.ToolStripControlHost host : Public
+  Properties:
+    FastColoredTextBoxNS.Range Fragment 'get set' : 
+    System.String SearchPattern 'get set' : 
+    Int32 MinFragmentLength 'get set' : 
+    Boolean AllowTabKey 'get set' : 
+    Int32 AppearInterval 'get set' : 
+    System.Drawing.Size MaxTooltipSize 'get set' : 
+    Boolean AlwaysShowTooltip 'get set' : 
+    System.Drawing.Color SelectedColor 'get set' : 
+    System.Drawing.Color HoveredColor 'get set' : 
+    System.Drawing.Font Font 'get set' : 
+    FastColoredTextBoxNS.AutocompleteListView Items 'get ' : 
+    System.Drawing.Size MinimumSize 'get set' : 
+    System.Windows.Forms.ImageList ImageList 'get set' : 
+    Int32 ToolTipDuration 'get set' : 
+    System.Windows.Forms.ToolTip ToolTip 'get set' : 
+  Events:
+    System.EventHandler`1[FastColoredTextBoxNS.SelectingEventArgs] Selecting: 
+    System.EventHandler`1[FastColoredTextBoxNS.SelectedEventArgs] Selected: 
+    System.EventHandler`1[System.ComponentModel.CancelEventArgs] Opening: 
+  Methods:
+    get_Fragment(): PrivateScope, Public, HideBySig, SpecialName
+    get_SearchPattern(): PrivateScope, Public, HideBySig, SpecialName
+    set_SearchPattern(String): PrivateScope, Public, HideBySig, SpecialName
+    get_MinFragmentLength(): PrivateScope, Public, HideBySig, SpecialName
+    set_MinFragmentLength(Int32): PrivateScope, Public, HideBySig, SpecialName
+    add_Selecting(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_Selecting(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_Selected(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_Selected(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_Opening(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_Opening(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    get_AllowTabKey(): PrivateScope, Public, HideBySig, SpecialName
+    set_AllowTabKey(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_AppearInterval(): PrivateScope, Public, HideBySig, SpecialName
+    set_AppearInterval(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxTooltipSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaxTooltipSize(Size): PrivateScope, Public, HideBySig, SpecialName
+    get_AlwaysShowTooltip(): PrivateScope, Public, HideBySig, SpecialName
+    set_AlwaysShowTooltip(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_SelectedColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_SelectedColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_HoveredColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_HoveredColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_Font(): PrivateScope, Public, HideBySig, SpecialName
+    set_Font(Font): PrivateScope, Public, HideBySig, SpecialName
+    Close(): PrivateScope, Public, HideBySig
+    OnSelecting(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SelectNext(Int32): PrivateScope, Public, HideBySig
+    OnSelected(SelectedEventArgs): PrivateScope, Public, HideBySig
+    get_Items(): PrivateScope, Public, HideBySig, SpecialName
+    Show(Boolean): PrivateScope, Public, HideBySig
+    get_MinimumSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_MinimumSize(Size): PrivateScope, Public, HideBySig, SpecialName
+    get_ImageList(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImageList(ImageList): PrivateScope, Public, HideBySig, SpecialName
+    get_ToolTipDuration(): PrivateScope, Public, HideBySig, SpecialName
+    set_ToolTipDuration(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_ToolTip(): PrivateScope, Public, HideBySig, SpecialName
+    set_ToolTip(ToolTip): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.AutocompleteListView: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.UserControl
+  Properties:
+    System.Windows.Forms.ImageList ImageList 'get set' : 
+    System.Drawing.Color SelectedColor 'get set' : 
+    System.Drawing.Color HoveredColor 'get set' : 
+    Int32 FocussedItemIndex 'get set' : 
+    FastColoredTextBoxNS.AutocompleteItem FocussedItem 'get set' : 
+    Int32 Count 'get ' : 
+  Events:
+    System.EventHandler FocussedItemIndexChanged: 
+  Methods:
+    add_FocussedItemIndexChanged(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_FocussedItemIndexChanged(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_ImageList(): PrivateScope, Public, HideBySig, SpecialName
+    set_ImageList(ImageList): PrivateScope, Public, HideBySig, SpecialName
+    get_SelectedColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_SelectedColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_HoveredColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_HoveredColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_FocussedItemIndex(): PrivateScope, Public, HideBySig, SpecialName
+    set_FocussedItemIndex(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_FocussedItem(): PrivateScope, Public, HideBySig, SpecialName
+    set_FocussedItem(AutocompleteItem): PrivateScope, Public, HideBySig, SpecialName
+    SelectNext(Int32): PrivateScope, Public, HideBySig
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    SetAutocompleteItems(ICollection`1): PrivateScope, Public, HideBySig
+    SetAutocompleteItems(IEnumerable`1): PrivateScope, Public, HideBySig
+Class FastColoredTextBoxNS.SelectingEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    FastColoredTextBoxNS.AutocompleteItem Item 'get set' : 
+    Boolean Cancel 'get set' : 
+    Int32 SelectedIndex 'get set' : 
+    Boolean Handled 'get set' : 
+  Methods:
+    get_Item(): PrivateScope, Public, HideBySig, SpecialName
+    get_Cancel(): PrivateScope, Public, HideBySig, SpecialName
+    set_Cancel(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_SelectedIndex(): PrivateScope, Public, HideBySig, SpecialName
+    set_SelectedIndex(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Handled(): PrivateScope, Public, HideBySig, SpecialName
+    set_Handled(Boolean): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.SelectedEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    FastColoredTextBoxNS.AutocompleteItem Item 'get set' : 
+    FastColoredTextBoxNS.FastColoredTextBox Tb 'get set' : 
+  Methods:
+    get_Item(): PrivateScope, Public, HideBySig, SpecialName
+    get_Tb(): PrivateScope, Public, HideBySig, SpecialName
+    set_Tb(FastColoredTextBox): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.BaseBookmarks: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  Interfaces:
+    System.Collections.Generic.ICollection`1[FastColoredTextBoxNS.Bookmark]
+    System.Collections.Generic.IEnumerable`1[FastColoredTextBoxNS.Bookmark]
+    System.Collections.IEnumerable
+    System.IDisposable
+  Properties:
+    Int32 Count 'get ' : 
+    Boolean IsReadOnly 'get ' : 
+  Methods:
+    Add(Bookmark): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Clear(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Contains(Bookmark): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    CopyTo(Bookmark[], Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    get_Count(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_IsReadOnly(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    Remove(Bookmark): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Dispose(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Add(Int32, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Add(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Contains(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Remove(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    GetBookmark(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class FastColoredTextBoxNS.Bookmarks: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.BaseBookmarks
+    Void .ctor(FastColoredTextBoxNS.FastColoredTextBox): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Count 'get ' : 
+    Boolean IsReadOnly 'get ' : 
+  Methods:
+    Dispose(): PrivateScope, Public, Virtual, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig
+    Add(Int32, String): PrivateScope, Public, Virtual, HideBySig
+    Add(Int32): PrivateScope, Public, Virtual, HideBySig
+    Clear(): PrivateScope, Public, Virtual, HideBySig
+    Add(Bookmark): PrivateScope, Public, Virtual, HideBySig
+    Contains(Bookmark): PrivateScope, Public, Virtual, HideBySig
+    Contains(Int32): PrivateScope, Public, Virtual, HideBySig
+    CopyTo(Bookmark[], Int32): PrivateScope, Public, Virtual, HideBySig
+    get_Count(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_IsReadOnly(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    Remove(Bookmark): PrivateScope, Public, Virtual, HideBySig
+    Remove(Int32): PrivateScope, Public, Virtual, HideBySig
+    GetBookmark(Int32): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.Bookmark: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(FastColoredTextBoxNS.FastColoredTextBox, System.String, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    FastColoredTextBoxNS.FastColoredTextBox TB 'get set' : 
+    System.String Name 'get set' : 
+    Int32 LineIndex 'get set' : 
+    System.Drawing.Color Color 'get set' : 
+  Methods:
+    get_TB(): PrivateScope, Public, HideBySig, SpecialName
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    set_Name(String): PrivateScope, Public, HideBySig, SpecialName
+    get_LineIndex(): PrivateScope, Public, HideBySig, SpecialName
+    set_LineIndex(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Color(): PrivateScope, Public, HideBySig, SpecialName
+    set_Color(Color): PrivateScope, Public, HideBySig, SpecialName
+    DoVisible(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Paint(Graphics, Rectangle): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Struct FastColoredTextBoxNS.Char: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+    Void .ctor(Char): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Char c : Public
+    FastColoredTextBoxNS.StyleIndex style : Public
+Class FastColoredTextBoxNS.DocumentMap: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Control
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.EventHandler TargetChanged : Public
+  Properties:
+    FastColoredTextBoxNS.FastColoredTextBox Target 'get set' : 
+    Single Scale 'get set' : 
+    Boolean ScrollbarVisible 'get set' : 
+  Methods:
+    get_Target(): PrivateScope, Public, HideBySig, SpecialName
+    set_Target(FastColoredTextBox): PrivateScope, Public, HideBySig, SpecialName
+    get_Scale(): PrivateScope, Public, HideBySig, SpecialName
+    set_Scale(Single): PrivateScope, Public, HideBySig, SpecialName
+    get_ScrollbarVisible(): PrivateScope, Public, HideBySig, SpecialName
+    set_ScrollbarVisible(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    NeedRepaint(): PrivateScope, Public, HideBySig
+Class FastColoredTextBoxNS.EncodingDetector: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Methods:
+    DetectTextFileEncoding(String): PrivateScope, Public, Static, HideBySig
+    DetectTextFileEncoding(FileStream, Int64): PrivateScope, Public, Static, HideBySig
+    DetectTextFileEncoding(FileStream, Int64, Boolean&(Out)): PrivateScope, Public, Static, HideBySig
+    DetectBOMBytes(Byte[]): PrivateScope, Public, Static, HideBySig
+    DetectUnicodeInByteSampleByHeuristics(Byte[]): PrivateScope, Public, Static, HideBySig
+Class FastColoredTextBoxNS.ExportToHTML: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.String LineNumbersCSS : Public
+  Properties:
+    Boolean UseNbsp 'get set' : 
+    Boolean UseForwardNbsp 'get set' : 
+    Boolean UseOriginalFont 'get set' : 
+    Boolean UseStyleTag 'get set' : 
+    Boolean UseBr 'get set' : 
+    Boolean IncludeLineNumbers 'get set' : 
+  Methods:
+    get_UseNbsp(): PrivateScope, Public, HideBySig, SpecialName
+    set_UseNbsp(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_UseForwardNbsp(): PrivateScope, Public, HideBySig, SpecialName
+    set_UseForwardNbsp(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_UseOriginalFont(): PrivateScope, Public, HideBySig, SpecialName
+    set_UseOriginalFont(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_UseStyleTag(): PrivateScope, Public, HideBySig, SpecialName
+    set_UseStyleTag(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_UseBr(): PrivateScope, Public, HideBySig, SpecialName
+    set_UseBr(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_IncludeLineNumbers(): PrivateScope, Public, HideBySig, SpecialName
+    set_IncludeLineNumbers(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    GetHtml(FastColoredTextBox): PrivateScope, Public, HideBySig
+    GetHtml(Range): PrivateScope, Public, HideBySig
+    GetColorAsString(Color): PrivateScope, Public, Static, HideBySig
+Class FastColoredTextBoxNS.ExportToRTF: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean IncludeLineNumbers 'get set' : 
+    Boolean UseOriginalFont 'get set' : 
+  Methods:
+    get_IncludeLineNumbers(): PrivateScope, Public, HideBySig, SpecialName
+    set_IncludeLineNumbers(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_UseOriginalFont(): PrivateScope, Public, HideBySig, SpecialName
+    set_UseOriginalFont(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    GetRtf(FastColoredTextBox): PrivateScope, Public, HideBySig
+    GetRtf(Range): PrivateScope, Public, HideBySig
+    GetColorAsString(Color): PrivateScope, Public, Static, HideBySig
+Class FastColoredTextBoxNS.RTFStyleDescriptor: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Drawing.Color ForeColor 'get set' : 
+    System.Drawing.Color BackColor 'get set' : 
+    System.String AdditionalTags 'get set' : 
+  Methods:
+    get_ForeColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_ForeColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_BackColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_BackColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_AdditionalTags(): PrivateScope, Public, HideBySig, SpecialName
+    set_AdditionalTags(String): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.GoToForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 SelectedLineNumber 'get set' : 
+    Int32 TotalLineCount 'get set' : 
+  Methods:
+    get_SelectedLineNumber(): PrivateScope, Public, HideBySig, SpecialName
+    set_SelectedLineNumber(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_TotalLineCount(): PrivateScope, Public, HideBySig, SpecialName
+    set_TotalLineCount(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.Hints: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(FastColoredTextBoxNS.FastColoredTextBox): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Generic.ICollection`1[FastColoredTextBoxNS.Hint]
+    System.Collections.Generic.IEnumerable`1[FastColoredTextBoxNS.Hint]
+    System.Collections.IEnumerable
+    System.IDisposable
+  Properties:
+    Int32 Count 'get ' : 
+    Boolean IsReadOnly 'get ' : 
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    GetEnumerator(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Clear(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Add(Hint): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Contains(Hint): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    CopyTo(Hint[], Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_Count(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_IsReadOnly(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Remove(Hint): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class FastColoredTextBoxNS.Hint: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(FastColoredTextBoxNS.Range, System.String, Boolean, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(FastColoredTextBoxNS.Range, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(FastColoredTextBoxNS.Range, System.Windows.Forms.Control, Boolean, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(FastColoredTextBoxNS.Range, System.Windows.Forms.Control): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String Text 'get set' : 
+    FastColoredTextBoxNS.Range Range 'get set' : 
+    System.Drawing.Color BackColor 'get set' : 
+    System.Drawing.Color BackColor2 'get set' : 
+    System.Drawing.Color BorderColor 'get set' : 
+    System.Drawing.Color ForeColor 'get set' : 
+    System.Drawing.StringAlignment TextAlignment 'get set' : 
+    System.Drawing.Font Font 'get set' : 
+    System.Windows.Forms.Control InnerControl 'get set' : 
+    System.Windows.Forms.DockStyle Dock 'get set' : 
+    Int32 Width 'get set' : 
+    Int32 Height 'get set' : 
+    FastColoredTextBoxNS.UnfocusablePanel HostPanel 'get set' : 
+    System.Object Tag 'get set' : 
+    System.Windows.Forms.Cursor Cursor 'get set' : 
+    Boolean Inline 'get set' : 
+  Events:
+    System.EventHandler Click: 
+  Methods:
+    get_Text(): PrivateScope, Public, HideBySig, SpecialName
+    set_Text(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Range(): PrivateScope, Public, HideBySig, SpecialName
+    set_Range(Range): PrivateScope, Public, HideBySig, SpecialName
+    get_BackColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_BackColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_BackColor2(): PrivateScope, Public, HideBySig, SpecialName
+    set_BackColor2(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_BorderColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_BorderColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_ForeColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_ForeColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_TextAlignment(): PrivateScope, Public, HideBySig, SpecialName
+    set_TextAlignment(StringAlignment): PrivateScope, Public, HideBySig, SpecialName
+    get_Font(): PrivateScope, Public, HideBySig, SpecialName
+    set_Font(Font): PrivateScope, Public, HideBySig, SpecialName
+    add_Click(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_Click(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_InnerControl(): PrivateScope, Public, HideBySig, SpecialName
+    set_InnerControl(Control): PrivateScope, Public, HideBySig, SpecialName
+    get_Dock(): PrivateScope, Public, HideBySig, SpecialName
+    set_Dock(DockStyle): PrivateScope, Public, HideBySig, SpecialName
+    get_Width(): PrivateScope, Public, HideBySig, SpecialName
+    set_Width(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Height(): PrivateScope, Public, HideBySig, SpecialName
+    set_Height(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_HostPanel(): PrivateScope, Public, HideBySig, SpecialName
+    get_Tag(): PrivateScope, Public, HideBySig, SpecialName
+    set_Tag(Object): PrivateScope, Public, HideBySig, SpecialName
+    get_Cursor(): PrivateScope, Public, HideBySig, SpecialName
+    set_Cursor(Cursor): PrivateScope, Public, HideBySig, SpecialName
+    get_Inline(): PrivateScope, Public, HideBySig, SpecialName
+    set_Inline(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    DoVisible(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class FastColoredTextBoxNS.HotkeysEditorForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(FastColoredTextBoxNS.HotkeysMapping): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    GetHotkeys(): PrivateScope, Public, HideBySig
+Class FastColoredTextBoxNS.LineNumberFormatting: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  Methods:
+    FromLineNumberToString(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    TryParseStringIntoLineNumber(String, Int32&(Out)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class FastColoredTextBoxNS.LinesAccessor: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.Collections.Generic.IList`1[FastColoredTextBoxNS.Line]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Generic.IList`1[System.String]
+    System.Collections.Generic.ICollection`1[System.String]
+    System.Collections.Generic.IEnumerable`1[System.String]
+    System.Collections.IEnumerable
+  Properties:
+    System.String Item [Int32] 'get set' : 
+    Int32 Count 'get ' : 
+    Boolean IsReadOnly 'get ' : 
+  Methods:
+    IndexOf(String): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Insert(Int32, String): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    RemoveAt(Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_Item(Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_Item(Int32, String): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Add(String): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Clear(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Contains(String): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    CopyTo(String[], Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_Count(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_IsReadOnly(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Remove(String): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    GetEnumerator(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class FastColoredTextBoxNS.MacrosManager: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    Boolean AllowMacroRecordingByUser 'get set' : 
+    Boolean IsRecording 'get set' : 
+    FastColoredTextBoxNS.FastColoredTextBox UnderlayingControl 'get set' : 
+    Boolean MacroIsEmpty 'get ' : 
+    System.String Macros 'get set' : 
+  Methods:
+    get_AllowMacroRecordingByUser(): PrivateScope, Public, HideBySig, SpecialName
+    set_AllowMacroRecordingByUser(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_IsRecording(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsRecording(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_UnderlayingControl(): PrivateScope, Public, HideBySig, SpecialName
+    ExecuteMacros(): PrivateScope, Public, HideBySig
+    AddCharToMacros(Char, Keys): PrivateScope, Public, HideBySig
+    AddKeyToMacros(Keys): PrivateScope, Public, HideBySig
+    ClearMacros(): PrivateScope, Public, HideBySig
+    get_MacroIsEmpty(): PrivateScope, Public, HideBySig, SpecialName
+    get_Macros(): PrivateScope, Public, HideBySig, SpecialName
+    set_Macros(String): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.PlatformType: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Methods:
+    GetOperationSystemPlatform(): PrivateScope, Public, Static, HideBySig
+Struct FastColoredTextBoxNS.Platform: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    FastColoredTextBoxNS.Platform X86 = 0 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.Platform X64 = 1 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.Platform Unknown = 2 : Public, Static, Literal, HasDefault
+Class FastColoredTextBoxNS.HotkeysMapping: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Collections.Generic.SortedDictionary`2[System.Windows.Forms.Keys,FastColoredTextBoxNS.FCTBAction]
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    InitDefault(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+    Parse(String): PrivateScope, Public, Static, HideBySig
+Struct FastColoredTextBoxNS.FCTBAction: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    FastColoredTextBoxNS.FCTBAction None = 0 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction AutocompleteMenu = 1 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction AutoIndentChars = 2 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction BookmarkLine = 3 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction ClearHints = 4 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction ClearWordLeft = 5 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction ClearWordRight = 6 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CommentSelected = 7 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction Copy = 8 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction Cut = 9 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction DeleteCharRight = 10 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction FindChar = 11 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction FindDialog = 12 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction FindNext = 13 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoDown = 14 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoDownWithSelection = 15 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoDown_ColumnSelectionMode = 16 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoEnd = 17 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoEndWithSelection = 18 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoFirstLine = 19 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoFirstLineWithSelection = 20 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoHome = 21 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoHomeWithSelection = 22 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoLastLine = 23 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoLastLineWithSelection = 24 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoLeft = 25 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoLeftWithSelection = 26 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoLeft_ColumnSelectionMode = 27 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoPageDown = 28 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoPageDownWithSelection = 29 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoPageUp = 30 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoPageUpWithSelection = 31 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoRight = 32 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoRightWithSelection = 33 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoRight_ColumnSelectionMode = 34 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoToDialog = 35 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoNextBookmark = 36 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoPrevBookmark = 37 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoUp = 38 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoUpWithSelection = 39 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoUp_ColumnSelectionMode = 40 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoWordLeft = 41 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoWordLeftWithSelection = 42 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoWordRight = 43 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction GoWordRightWithSelection = 44 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction IndentIncrease = 45 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction IndentDecrease = 46 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction LowerCase = 47 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction MacroExecute = 48 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction MacroRecord = 49 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction MoveSelectedLinesDown = 50 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction MoveSelectedLinesUp = 51 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction NavigateBackward = 52 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction NavigateForward = 53 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction Paste = 54 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction Redo = 55 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction ReplaceDialog = 56 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction ReplaceMode = 57 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction ScrollDown = 58 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction ScrollUp = 59 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction SelectAll = 60 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction UnbookmarkLine = 61 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction Undo = 62 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction UpperCase = 63 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction ZoomIn = 64 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction ZoomNormal = 65 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction ZoomOut = 66 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction1 = 67 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction2 = 68 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction3 = 69 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction4 = 70 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction5 = 71 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction6 = 72 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction7 = 73 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction8 = 74 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction9 = 75 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction10 = 76 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction11 = 77 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction12 = 78 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction13 = 79 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction14 = 80 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction15 = 81 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction16 = 82 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction17 = 83 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction18 = 84 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction19 = 85 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FCTBAction CustomAction20 = 86 : Public, Static, Literal, HasDefault
+Class FastColoredTextBoxNS.Ruler: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.UserControl
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.EventHandler TargetChanged : Public
+  Properties:
+    System.Drawing.Color BackColor2 'get set' : 
+    System.Drawing.Color TickColor 'get set' : 
+    System.Drawing.Color CaretTickColor 'get set' : 
+    FastColoredTextBoxNS.FastColoredTextBox Target 'get set' : 
+  Methods:
+    get_BackColor2(): PrivateScope, Public, HideBySig, SpecialName
+    set_BackColor2(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_TickColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_TickColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_CaretTickColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_CaretTickColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_Target(): PrivateScope, Public, HideBySig, SpecialName
+    set_Target(FastColoredTextBox): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.SyntaxDescriptor: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Fields:
+    Char leftBracket : Public
+    Char rightBracket : Public
+    Char leftBracket2 : Public
+    Char rightBracket2 : Public
+    FastColoredTextBoxNS.BracketsHighlightStrategy bracketsHighlightStrategy : Public
+    System.Collections.Generic.List`1[FastColoredTextBoxNS.Style] styles : Public, InitOnly
+    System.Collections.Generic.List`1[FastColoredTextBoxNS.RuleDesc] rules : Public, InitOnly
+    System.Collections.Generic.List`1[FastColoredTextBoxNS.FoldingDesc] foldings : Public, InitOnly
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class FastColoredTextBoxNS.RuleDesc: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.String pattern : Public
+    System.Text.RegularExpressions.RegexOptions options : Public
+    FastColoredTextBoxNS.Style style : Public
+  Properties:
+    System.Text.RegularExpressions.Regex Regex 'get ' : 
+  Methods:
+    get_Regex(): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.FoldingDesc: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.String startMarkerRegex : Public
+    System.String finishMarkerRegex : Public
+    System.Text.RegularExpressions.RegexOptions options : Public
+Class FastColoredTextBoxNS.SyntaxHighlighter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(FastColoredTextBoxNS.FastColoredTextBox): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Fields:
+    FastColoredTextBoxNS.Style BlueBoldStyle : Public, InitOnly
+    FastColoredTextBoxNS.Style BlueStyle : Public, InitOnly
+    FastColoredTextBoxNS.Style BoldStyle : Public, InitOnly
+    FastColoredTextBoxNS.Style BrownStyle : Public, InitOnly
+    FastColoredTextBoxNS.Style GrayStyle : Public, InitOnly
+    FastColoredTextBoxNS.Style GreenStyle : Public, InitOnly
+    FastColoredTextBoxNS.Style MagentaStyle : Public, InitOnly
+    FastColoredTextBoxNS.Style MaroonStyle : Public, InitOnly
+    FastColoredTextBoxNS.Style RedStyle : Public, InitOnly
+    FastColoredTextBoxNS.Style BlackStyle : Public, InitOnly
+  Properties:
+    System.Text.RegularExpressions.RegexOptions RegexCompiledOption 'get ' : 
+    FastColoredTextBoxNS.Style StringStyle 'get set' : 
+    FastColoredTextBoxNS.Style CommentStyle 'get set' : 
+    FastColoredTextBoxNS.Style NumberStyle 'get set' : 
+    FastColoredTextBoxNS.Style AttributeStyle 'get set' : 
+    FastColoredTextBoxNS.Style ClassNameStyle 'get set' : 
+    FastColoredTextBoxNS.Style KeywordStyle 'get set' : 
+    FastColoredTextBoxNS.Style CommentTagStyle 'get set' : 
+    FastColoredTextBoxNS.Style AttributeValueStyle 'get set' : 
+    FastColoredTextBoxNS.Style TagBracketStyle 'get set' : 
+    FastColoredTextBoxNS.Style TagNameStyle 'get set' : 
+    FastColoredTextBoxNS.Style HtmlEntityStyle 'get set' : 
+    FastColoredTextBoxNS.Style XmlAttributeStyle 'get set' : 
+    FastColoredTextBoxNS.Style XmlAttributeValueStyle 'get set' : 
+    FastColoredTextBoxNS.Style XmlTagBracketStyle 'get set' : 
+    FastColoredTextBoxNS.Style XmlTagNameStyle 'get set' : 
+    FastColoredTextBoxNS.Style XmlEntityStyle 'get set' : 
+    FastColoredTextBoxNS.Style XmlCDataStyle 'get set' : 
+    FastColoredTextBoxNS.Style VariableStyle 'get set' : 
+    FastColoredTextBoxNS.Style KeywordStyle2 'get set' : 
+    FastColoredTextBoxNS.Style KeywordStyle3 'get set' : 
+    FastColoredTextBoxNS.Style StatementsStyle 'get set' : 
+    FastColoredTextBoxNS.Style FunctionsStyle 'get set' : 
+    FastColoredTextBoxNS.Style TypesStyle 'get set' : 
+  Methods:
+    get_RegexCompiledOption(): PrivateScope, Public, Static, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    HighlightSyntax(Language, Range): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    HighlightSyntax(String, Range): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AutoIndentNeeded(Object, AutoIndentEventArgs): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AddXmlDescription(String, XmlDocument): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AddResilientStyle(Style): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ParseXmlDescription(XmlDocument): PrivateScope, Public, Static, HideBySig
+    HighlightSyntax(SyntaxDescriptor, Range): PrivateScope, Public, HideBySig
+    InitStyleSchema(Language): PrivateScope, Public, HideBySig
+    CSharpSyntaxHighlight(Range): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    VBSyntaxHighlight(Range): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    HTMLSyntaxHighlight(Range): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    XMLSyntaxHighlight(Range): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SQLSyntaxHighlight(Range): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    PHPSyntaxHighlight(Range): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    JScriptSyntaxHighlight(Range): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    LuaSyntaxHighlight(Range): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    JSONSyntaxHighlight(Range): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    get_StringStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_StringStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_CommentStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_CommentStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_NumberStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_NumberStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_AttributeStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_AttributeStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_ClassNameStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_ClassNameStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_KeywordStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_KeywordStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_CommentTagStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_CommentTagStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_AttributeValueStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_AttributeValueStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_TagBracketStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_TagBracketStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_TagNameStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_TagNameStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_HtmlEntityStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_HtmlEntityStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_XmlAttributeStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_XmlAttributeStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_XmlAttributeValueStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_XmlAttributeValueStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_XmlTagBracketStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_XmlTagBracketStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_XmlTagNameStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_XmlTagNameStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_XmlEntityStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_XmlEntityStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_XmlCDataStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_XmlCDataStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_VariableStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_VariableStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_KeywordStyle2(): PrivateScope, Public, HideBySig, SpecialName
+    set_KeywordStyle2(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_KeywordStyle3(): PrivateScope, Public, HideBySig, SpecialName
+    set_KeywordStyle3(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_StatementsStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_StatementsStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_FunctionsStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_FunctionsStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+    get_TypesStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_TypesStyle(Style): PrivateScope, Public, HideBySig, SpecialName
+Struct FastColoredTextBoxNS.Language: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    FastColoredTextBoxNS.Language Custom = 0 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.Language CSharp = 1 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.Language VB = 2 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.Language HTML = 3 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.Language XML = 4 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.Language SQL = 5 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.Language PHP = 6 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.Language JS = 7 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.Language Lua = 8 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.Language JSON = 9 : Public, Static, Literal, HasDefault
+Class FastColoredTextBoxNS.ReplaceForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(FastColoredTextBoxNS.FastColoredTextBox): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.TextBox tbFind : Public
+    System.Windows.Forms.TextBox tbReplace : Public
+  Methods:
+    FindAll(String): PrivateScope, Public, HideBySig
+    Find(String): PrivateScope, Public, HideBySig
+Class FastColoredTextBoxNS.FastColoredTextBox: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.UserControl
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.ComponentModel.ISupportInitialize
+  Fields:
+    System.Collections.Generic.List`1[FastColoredTextBoxNS.LineInfo] LineInfos : Public, InitOnly
+    Int32 TextHeight : Public
+    Boolean AllowInsertRemoveLines : Public
+  Properties:
+    Char[] AutoCompleteBracketsList 'get set' : 
+    Boolean AutoCompleteBrackets 'get set' : 
+    FastColoredTextBoxNS.ServiceColors ServiceColors 'get set' : 
+    System.Collections.Generic.Dictionary`2[System.Int32,System.Int32] FoldedBlocks 'get set' : 
+    FastColoredTextBoxNS.BracketsHighlightStrategy BracketsHighlightStrategy 'get set' : 
+    Boolean WordWrapAutoIndent 'get set' : 
+    Int32 WordWrapIndent 'get set' : 
+    FastColoredTextBoxNS.MacrosManager MacrosManager 'get ' : 
+    Boolean AllowDrop 'get set' : 
+    FastColoredTextBoxNS.Hints Hints 'get set' : 
+    Int32 ToolTipDelay 'get set' : 
+    System.Windows.Forms.ToolTip ToolTip 'get set' : 
+    System.Drawing.Color BookmarkColor 'get set' : 
+    FastColoredTextBoxNS.BaseBookmarks Bookmarks 'get set' : 
+    Boolean VirtualSpace 'get set' : 
+    FastColoredTextBoxNS.FindEndOfFoldingBlockStrategy FindEndOfFoldingBlockStrategy 'get set' : 
+    Boolean AcceptsTab 'get set' : 
+    Boolean AcceptsReturn 'get set' : 
+    Boolean CaretVisible 'get set' : 
+    Boolean CaretBlinking 'get set' : 
+    Boolean ShowCaretWhenInactive 'get set' : 
+    System.Drawing.Color TextAreaBorderColor 'get set' : 
+    FastColoredTextBoxNS.TextAreaBorderType TextAreaBorder 'get set' : 
+    System.Drawing.Color CurrentLineColor 'get set' : 
+    System.Drawing.Color ChangedLineColor 'get set' : 
+    System.Drawing.Color ForeColor 'get set' : 
+    Int32 CharHeight 'get set' : 
+    Int32 LineInterval 'get set' : 
+    Int32 CharWidth 'get set' : 
+    Int32 TabLength 'get set' : 
+    Boolean IsChanged 'get set' : 
+    Int32 TextVersion 'get set' : 
+    Boolean ReadOnly 'get set' : 
+    Boolean ShowLineNumbers 'get set' : 
+    Boolean ShowFoldingLines 'get set' : 
+    System.Drawing.Rectangle TextAreaRect 'get ' : 
+    System.Drawing.Color LineNumberColor 'get set' : 
+    UInt32 LineNumberStartValue 'get set' : 
+    FastColoredTextBoxNS.LineNumberFormatting LineNumberFormatting 'get set' : 
+    System.Drawing.Color IndentBackColor 'get set' : 
+    System.Drawing.Color PaddingBackColor 'get set' : 
+    System.Drawing.Color DisabledColor 'get set' : 
+    System.Drawing.Color CaretColor 'get set' : 
+    Boolean WideCaret 'get set' : 
+    System.Drawing.Color ServiceLinesColor 'get set' : 
+    System.Windows.Forms.Padding Paddings 'get set' : 
+    System.Windows.Forms.Padding Padding 'get set' : 
+    Boolean RightToLeft 'get set' : 
+    System.Drawing.Color FoldingIndicatorColor 'get set' : 
+    Boolean HighlightFoldingIndicator 'get set' : 
+    Int32 LeftIndent 'get set' : 
+    Int32 LeftPadding 'get set' : 
+    Int32 PreferredLineWidth 'get set' : 
+    FastColoredTextBoxNS.Style[] Styles 'get ' : 
+    System.String Hotkeys 'get set' : 
+    FastColoredTextBoxNS.HotkeysMapping HotkeysMapping 'get set' : 
+    FastColoredTextBoxNS.TextStyle DefaultStyle 'get set' : 
+    FastColoredTextBoxNS.SelectionStyle SelectionStyle 'get set' : 
+    FastColoredTextBoxNS.TextStyle FoldedBlockStyle 'get set' : 
+    FastColoredTextBoxNS.MarkerStyle BracketsStyle 'get set' : 
+    FastColoredTextBoxNS.MarkerStyle BracketsStyle2 'get set' : 
+    Char LeftBracket 'get set' : 
+    Char RightBracket 'get set' : 
+    Char LeftBracket2 'get set' : 
+    Char RightBracket2 'get set' : 
+    System.String CommentPrefix 'get set' : 
+    FastColoredTextBoxNS.HighlightingRangeType HighlightingRangeType 'get set' : 
+    Boolean IsReplaceMode 'get set' : 
+    Boolean AllowSeveralTextStyleDrawing 'get set' : 
+    Boolean AllowMacroRecording 'get set' : 
+    Boolean AutoIndent 'get set' : 
+    Boolean AutoIndentExistingLines 'get set' : 
+    Int32 DelayedEventsInterval 'get set' : 
+    Int32 DelayedTextChangedInterval 'get set' : 
+    FastColoredTextBoxNS.Language Language 'get set' : 
+    FastColoredTextBoxNS.SyntaxHighlighter SyntaxHighlighter 'get set' : 
+    System.String DescriptionFile 'get set' : 
+    FastColoredTextBoxNS.Range LeftBracketPosition 'get ' : 
+    FastColoredTextBoxNS.Range RightBracketPosition 'get ' : 
+    FastColoredTextBoxNS.Range LeftBracketPosition2 'get ' : 
+    FastColoredTextBoxNS.Range RightBracketPosition2 'get ' : 
+    Int32 StartFoldingLine 'get ' : 
+    Int32 EndFoldingLine 'get ' : 
+    FastColoredTextBoxNS.TextSource TextSource 'get set' : 
+    Boolean HasSourceTextBox 'get ' : 
+    FastColoredTextBoxNS.FastColoredTextBox SourceTextBox 'get set' : 
+    FastColoredTextBoxNS.Range VisibleRange 'get ' : 
+    FastColoredTextBoxNS.Range Selection 'get set' : 
+    System.Drawing.Color BackColor 'get set' : 
+    System.Drawing.Brush BackBrush 'get set' : 
+    Boolean ShowScrollBars 'get set' : 
+    Boolean Multiline 'get set' : 
+    Boolean WordWrap 'get set' : 
+    FastColoredTextBoxNS.WordWrapMode WordWrapMode 'get set' : 
+    Boolean SelectionHighlightingForLineBreaksEnabled 'get set' : 
+    FastColoredTextBoxNS.FindForm findForm 'get set' : 
+    FastColoredTextBoxNS.ReplaceForm replaceForm 'get set' : 
+    Boolean AutoScroll 'get set' : 
+    Int32 LinesCount 'get ' : 
+    FastColoredTextBoxNS.Char Item [FastColoredTextBoxNS.Place] 'get set' : 
+    FastColoredTextBoxNS.Line Item [Int32] 'get ' : 
+    System.String Text 'get set' : 
+    Int32 TextLength 'get ' : 
+    System.Collections.Generic.IList`1[System.String] Lines 'get ' : 
+    System.String Html 'get ' : 
+    System.String Rtf 'get ' : 
+    System.String SelectedText 'get set' : 
+    Int32 SelectionStart 'get set' : 
+    Int32 SelectionLength 'get set' : 
+    System.Drawing.Font Font 'get set' : 
+    System.Drawing.Size AutoScrollMinSize 'get set' : 
+    Boolean ImeAllowed 'get ' : 
+    Boolean UndoEnabled 'get ' : 
+    Boolean RedoEnabled 'get ' : 
+    FastColoredTextBoxNS.Range Range 'get ' : 
+    System.Drawing.Color SelectionColor 'get set' : 
+    System.Windows.Forms.Cursor Cursor 'get set' : 
+    Int32 ReservedCountOfLineNumberChars 'get set' : 
+    Boolean AutoIndentChars 'get set' : 
+    System.String AutoIndentCharsPatterns 'get set' : 
+    Int32 Zoom 'get set' : 
+  Events:
+    System.EventHandler`1[FastColoredTextBoxNS.ToolTipNeededEventArgs] ToolTipNeeded: 
+    System.EventHandler`1[FastColoredTextBoxNS.HintClickEventArgs] HintClick: 
+    System.EventHandler`1[FastColoredTextBoxNS.TextChangedEventArgs] TextChanged: 
+    System.EventHandler`1[FastColoredTextBoxNS.TextChangingEventArgs] Pasting: 
+    System.EventHandler`1[FastColoredTextBoxNS.TextChangingEventArgs] TextChanging: 
+    System.EventHandler SelectionChanged: 
+    System.EventHandler VisibleRangeChanged: 
+    System.EventHandler`1[FastColoredTextBoxNS.TextChangedEventArgs] TextChangedDelayed: 
+    System.EventHandler SelectionChangedDelayed: 
+    System.EventHandler VisibleRangeChangedDelayed: 
+    System.EventHandler`1[FastColoredTextBoxNS.VisualMarkerEventArgs] VisualMarkerClick: 
+    System.Windows.Forms.KeyPressEventHandler KeyPressing: 
+    System.Windows.Forms.KeyPressEventHandler KeyPressed: 
+    System.EventHandler`1[FastColoredTextBoxNS.AutoIndentEventArgs] AutoIndentNeeded: 
+    System.EventHandler`1[FastColoredTextBoxNS.PaintLineEventArgs] PaintLine: 
+    System.EventHandler`1[FastColoredTextBoxNS.LineInsertedEventArgs] LineInserted: 
+    System.EventHandler`1[FastColoredTextBoxNS.LineRemovedEventArgs] LineRemoved: 
+    System.EventHandler`1[System.EventArgs] FoldingHighlightChanged: 
+    System.EventHandler`1[System.EventArgs] UndoRedoStateChanged: 
+    System.EventHandler ZoomChanged: 
+    System.EventHandler`1[FastColoredTextBoxNS.CustomActionEventArgs] CustomAction: 
+    System.EventHandler ScrollbarsUpdated: 
+    System.EventHandler`1[FastColoredTextBoxNS.WordWrapNeededEventArgs] WordWrapNeeded: 
+  Methods:
+    ShowGoToDialog(): PrivateScope, Public, HideBySig
+    SetSelectedLine(Int32): PrivateScope, Public, HideBySig
+    OnUndoRedoStateChanged(): PrivateScope, Public, HideBySig
+    FindLines(String, RegexOptions): PrivateScope, Public, HideBySig
+    RemoveLines(List`1): PrivateScope, Public, HideBySig
+    ChangeFontSize(Int32): PrivateScope, Public, HideBySig
+    get_Zoom(): PrivateScope, Public, HideBySig, SpecialName
+    set_Zoom(Int32): PrivateScope, Public, HideBySig, SpecialName
+    YtoLineIndex(Int32): PrivateScope, Public, HideBySig
+    PointToPlace(Point): PrivateScope, Public, HideBySig
+    PointToPosition(Point): PrivateScope, Public, HideBySig
+    OnTextChanging(String&): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    OnTextChanging(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    OnTextChanged(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    OnTextChanged(Int32, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    OnTextChanged(Range): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    BeginUpdate(): PrivateScope, Public, HideBySig
+    EndUpdate(): PrivateScope, Public, HideBySig
+    OnSelectionChanged(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    PlaceToPosition(Place): PrivateScope, Public, HideBySig
+    PositionToPlace(Int32): PrivateScope, Public, HideBySig
+    PositionToPoint(Int32): PrivateScope, Public, HideBySig
+    PlaceToPoint(Place): PrivateScope, Public, HideBySig
+    GetRange(Int32, Int32): PrivateScope, Public, HideBySig
+    GetRange(Place, Place): PrivateScope, Public, HideBySig
+    GetRanges(String): PrivateScope, Public, HideBySig
+    GetRanges(String, RegexOptions): PrivateScope, Public, HideBySig
+    GetLineText(Int32): PrivateScope, Public, HideBySig
+    ExpandFoldedBlock(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AdjustFolding(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ExpandBlock(Int32, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ExpandBlock(Int32): PrivateScope, Public, HideBySig
+    CollapseAllFoldingBlocks(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ExpandAllFoldingBlocks(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CollapseFoldingBlock(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetLineFoldingStartMarker(Int32): PrivateScope, Public, HideBySig
+    GetLineFoldingEndMarker(Int32): PrivateScope, Public, HideBySig
+    CollapseBlock(Int32, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    IncreaseIndent(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    DecreaseIndent(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    DoAutoIndent(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    InsertLinePrefix(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    RemoveLinePrefix(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    BeginAutoUndo(): PrivateScope, Public, HideBySig
+    EndAutoUndo(): PrivateScope, Public, HideBySig
+    OnVisualMarkerClick(MouseEventArgs, StyleVisualMarker): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetBracketsRange(Place, Char, Char, Boolean): PrivateScope, Public, HideBySig
+    SelectNext(String, Boolean(Optional, HasDefault), RegexOptions(Optional, HasDefault)): PrivateScope, Public, HideBySig
+    OnSyntaxHighlight(TextChangedEventArgs): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Print(Range, PrintDialogSettings): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Print(PrintDialogSettings): PrivateScope, Public, HideBySig
+    Print(): PrivateScope, Public, HideBySig
+    OpenFile(String, Encoding): PrivateScope, Public, HideBySig
+    OpenFile(String): PrivateScope, Public, HideBySig
+    OpenBindingFile(String, Encoding): PrivateScope, Public, HideBySig
+    CloseBindingFile(): PrivateScope, Public, HideBySig
+    SaveToFile(String, Encoding): PrivateScope, Public, HideBySig
+    SetVisibleState(Int32, VisibleState): PrivateScope, Public, HideBySig
+    GetVisibleState(Int32): PrivateScope, Public, HideBySig
+    ClearSelected(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ClearCurrentLine(): PrivateScope, Public, HideBySig
+    CalcCutOffs(List`1, Int32, Int32, Boolean, Boolean, Line): PrivateScope, Public, Static, HideBySig
+    IsCJKLetter(Char): PrivateScope, Public, Static, HideBySig
+    UpdateScrollbars(): PrivateScope, Public, HideBySig
+    DoCaretVisible(): PrivateScope, Public, HideBySig
+    ScrollLeft(): PrivateScope, Public, HideBySig
+    DoSelectionVisible(): PrivateScope, Public, HideBySig
+    DoRangeVisible(Range): PrivateScope, Public, HideBySig
+    DoRangeVisible(Range, Boolean): PrivateScope, Public, HideBySig
+    ProcessKey(Keys): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GotoNextBookmark(Int32): PrivateScope, Public, HideBySig
+    GotoPrevBookmark(Int32): PrivateScope, Public, HideBySig
+    BookmarkLine(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    UnbookmarkLine(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    MoveSelectedLinesDown(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    MoveSelectedLinesUp(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    UpperCase(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    LowerCase(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    TitleCase(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SentenceCase(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CommentSelected(): PrivateScope, Public, HideBySig
+    CommentSelected(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    OnKeyPressing(KeyPressEventArgs): PrivateScope, Public, HideBySig
+    OnKeyPressed(Char): PrivateScope, Public, HideBySig
+    ProcessKey(Char, Keys): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    get_AutoIndentChars(): PrivateScope, Public, HideBySig, SpecialName
+    set_AutoIndentChars(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_AutoIndentCharsPatterns(): PrivateScope, Public, HideBySig, SpecialName
+    set_AutoIndentCharsPatterns(String): PrivateScope, Public, HideBySig, SpecialName
+    DoAutoIndentChars(Int32): PrivateScope, Public, HideBySig
+    DoAutoIndentIfNeed(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    DoAutoIndent(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CalcAutoIndent(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Undo(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Redo(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    DrawText(Graphics, Place, Size): PrivateScope, Public, HideBySig
+    remove_PaintLine(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_LineInserted(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_LineInserted(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_LineRemoved(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_LineRemoved(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_FoldingHighlightChanged(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_FoldingHighlightChanged(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_UndoRedoStateChanged(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_UndoRedoStateChanged(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_ZoomChanged(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_ZoomChanged(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_CustomAction(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_CustomAction(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_ScrollbarsUpdated(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_ScrollbarsUpdated(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_WordWrapNeeded(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_WordWrapNeeded(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    GetStylesOfChar(Place): PrivateScope, Public, HideBySig
+    NeedRecalc(): PrivateScope, Public, HideBySig
+    NeedRecalc(Boolean): PrivateScope, Public, HideBySig
+    NeedRecalc(Boolean, Boolean): PrivateScope, Public, HideBySig
+    NavigateForward(): PrivateScope, Public, HideBySig
+    NavigateBackward(): PrivateScope, Public, HideBySig
+    Navigate(Int32): PrivateScope, Public, HideBySig
+    AddVisualMarker(VisualMarker): PrivateScope, Public, HideBySig
+    OnTextChangedDelayed(Range): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    OnSelectionChangedDelayed(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    OnVisibleRangeChangedDelayed(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AddStyle(Style): PrivateScope, Public, HideBySig
+    CheckStylesBufferSize(): PrivateScope, Public, HideBySig
+    ShowFindDialog(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ShowFindDialog(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ShowReplaceDialog(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ShowReplaceDialog(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetLineLength(Int32): PrivateScope, Public, HideBySig
+    GetLine(Int32): PrivateScope, Public, HideBySig
+    Copy(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    PrepareHtmlForClipboard(String): PrivateScope, Public, Static, HideBySig
+    Cut(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Paste(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SelectAll(): PrivateScope, Public, HideBySig
+    GoEnd(): PrivateScope, Public, HideBySig
+    GoHome(): PrivateScope, Public, HideBySig
+    Clear(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ClearStylesBuffer(): PrivateScope, Public, HideBySig
+    ClearStyle(StyleIndex): PrivateScope, Public, HideBySig
+    ClearUndo(): PrivateScope, Public, HideBySig
+    InsertText(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    InsertText(String, Boolean): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    InsertText(String, Style): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    InsertText(String, Style, Boolean): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    InsertTextAndRestoreSelection(Range, String, Style): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AppendText(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AppendText(String, Style): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetStyleIndex(Style): PrivateScope, Public, HideBySig
+    GetStyleIndexMask(Style[]): PrivateScope, Public, HideBySig
+    GetCharSize(Font, Char): PrivateScope, Public, Static, HideBySig
+    ImmGetContext(IntPtr): PrivateScope, Public, Static, HideBySig, PinvokeImpl
+    ImmAssociateContext(IntPtr, IntPtr): PrivateScope, Public, Static, HideBySig, PinvokeImpl
+    OnScroll(ScrollEventArgs, Boolean): PrivateScope, Public, HideBySig
+    get_Multiline(): PrivateScope, Public, HideBySig, SpecialName
+    set_Multiline(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_WordWrap(): PrivateScope, Public, HideBySig, SpecialName
+    set_WordWrap(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_WordWrapMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_WordWrapMode(WordWrapMode): PrivateScope, Public, HideBySig, SpecialName
+    get_SelectionHighlightingForLineBreaksEnabled(): PrivateScope, Public, HideBySig, SpecialName
+    set_SelectionHighlightingForLineBreaksEnabled(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_findForm(): PrivateScope, Public, HideBySig, SpecialName
+    get_replaceForm(): PrivateScope, Public, HideBySig, SpecialName
+    get_AutoScroll(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_AutoScroll(Boolean): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_LinesCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Place): PrivateScope, Public, HideBySig, SpecialName
+    set_Item(Place, Char): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Text(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_Text(String): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_TextLength(): PrivateScope, Public, HideBySig, SpecialName
+    get_Lines(): PrivateScope, Public, HideBySig, SpecialName
+    get_Html(): PrivateScope, Public, HideBySig, SpecialName
+    get_Rtf(): PrivateScope, Public, HideBySig, SpecialName
+    get_SelectedText(): PrivateScope, Public, HideBySig, SpecialName
+    set_SelectedText(String): PrivateScope, Public, HideBySig, SpecialName
+    get_SelectionStart(): PrivateScope, Public, HideBySig, SpecialName
+    set_SelectionStart(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_SelectionLength(): PrivateScope, Public, HideBySig, SpecialName
+    set_SelectionLength(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Font(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_Font(Font): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_AutoScrollMinSize(Size): PrivateScope, Public, HideBySig, SpecialName
+    get_AutoScrollMinSize(): PrivateScope, Public, HideBySig, SpecialName
+    get_ImeAllowed(): PrivateScope, Public, HideBySig, SpecialName
+    get_UndoEnabled(): PrivateScope, Public, HideBySig, SpecialName
+    get_RedoEnabled(): PrivateScope, Public, HideBySig, SpecialName
+    get_Range(): PrivateScope, Public, HideBySig, SpecialName
+    get_SelectionColor(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_SelectionColor(Color): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Cursor(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_Cursor(Cursor): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_ReservedCountOfLineNumberChars(): PrivateScope, Public, HideBySig, SpecialName
+    set_ReservedCountOfLineNumberChars(Int32): PrivateScope, Public, HideBySig, SpecialName
+    add_ToolTipNeeded(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_ToolTipNeeded(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    ClearHints(): PrivateScope, Public, HideBySig
+    AddHint(Range, Control, Boolean, Boolean, Boolean): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AddHint(Range, Control): PrivateScope, Public, HideBySig
+    AddHint(Range, String, Boolean, Boolean, Boolean): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AddHint(Range, String): PrivateScope, Public, HideBySig
+    OnHintClick(Hint): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    OnVisibleRangeChanged(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Invalidate(): PrivateScope, Public, HideBySig
+    add_HintClick(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_HintClick(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_TextChanged(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_TextChanged(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_Pasting(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_Pasting(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_TextChanging(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_TextChanging(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_SelectionChanged(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_SelectionChanged(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_VisibleRangeChanged(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_VisibleRangeChanged(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_TextChangedDelayed(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_TextChangedDelayed(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_SelectionChangedDelayed(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_SelectionChangedDelayed(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_VisibleRangeChangedDelayed(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_VisibleRangeChangedDelayed(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_VisualMarkerClick(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_VisualMarkerClick(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_KeyPressing(KeyPressEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_KeyPressing(KeyPressEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_KeyPressed(KeyPressEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_KeyPressed(KeyPressEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_AutoIndentNeeded(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_AutoIndentNeeded(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_PaintLine(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    set_WideCaret(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_ServiceLinesColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_ServiceLinesColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_Paddings(): PrivateScope, Public, HideBySig, SpecialName
+    set_Paddings(Padding): PrivateScope, Public, HideBySig, SpecialName
+    get_Padding(): PrivateScope, Public, HideBySig, SpecialName
+    set_Padding(Padding): PrivateScope, Public, HideBySig, SpecialName
+    get_RightToLeft(): PrivateScope, Public, HideBySig, SpecialName
+    set_RightToLeft(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_FoldingIndicatorColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_FoldingIndicatorColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_HighlightFoldingIndicator(): PrivateScope, Public, HideBySig, SpecialName
+    set_HighlightFoldingIndicator(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_LeftIndent(): PrivateScope, Public, HideBySig, SpecialName
+    get_LeftPadding(): PrivateScope, Public, HideBySig, SpecialName
+    set_LeftPadding(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_PreferredLineWidth(): PrivateScope, Public, HideBySig, SpecialName
+    set_PreferredLineWidth(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Styles(): PrivateScope, Public, HideBySig, SpecialName
+    get_Hotkeys(): PrivateScope, Public, HideBySig, SpecialName
+    set_Hotkeys(String): PrivateScope, Public, HideBySig, SpecialName
+    get_HotkeysMapping(): PrivateScope, Public, HideBySig, SpecialName
+    set_HotkeysMapping(HotkeysMapping): PrivateScope, Public, HideBySig, SpecialName
+    get_DefaultStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_DefaultStyle(TextStyle): PrivateScope, Public, HideBySig, SpecialName
+    get_SelectionStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_SelectionStyle(SelectionStyle): PrivateScope, Public, HideBySig, SpecialName
+    get_FoldedBlockStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_FoldedBlockStyle(TextStyle): PrivateScope, Public, HideBySig, SpecialName
+    get_BracketsStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_BracketsStyle(MarkerStyle): PrivateScope, Public, HideBySig, SpecialName
+    get_BracketsStyle2(): PrivateScope, Public, HideBySig, SpecialName
+    set_BracketsStyle2(MarkerStyle): PrivateScope, Public, HideBySig, SpecialName
+    get_LeftBracket(): PrivateScope, Public, HideBySig, SpecialName
+    set_LeftBracket(Char): PrivateScope, Public, HideBySig, SpecialName
+    get_RightBracket(): PrivateScope, Public, HideBySig, SpecialName
+    set_RightBracket(Char): PrivateScope, Public, HideBySig, SpecialName
+    get_LeftBracket2(): PrivateScope, Public, HideBySig, SpecialName
+    set_LeftBracket2(Char): PrivateScope, Public, HideBySig, SpecialName
+    get_RightBracket2(): PrivateScope, Public, HideBySig, SpecialName
+    set_RightBracket2(Char): PrivateScope, Public, HideBySig, SpecialName
+    get_CommentPrefix(): PrivateScope, Public, HideBySig, SpecialName
+    set_CommentPrefix(String): PrivateScope, Public, HideBySig, SpecialName
+    get_HighlightingRangeType(): PrivateScope, Public, HideBySig, SpecialName
+    set_HighlightingRangeType(HighlightingRangeType): PrivateScope, Public, HideBySig, SpecialName
+    get_IsReplaceMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsReplaceMode(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_AllowSeveralTextStyleDrawing(): PrivateScope, Public, HideBySig, SpecialName
+    set_AllowSeveralTextStyleDrawing(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_AllowMacroRecording(): PrivateScope, Public, HideBySig, SpecialName
+    set_AllowMacroRecording(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_AutoIndent(): PrivateScope, Public, HideBySig, SpecialName
+    set_AutoIndent(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_AutoIndentExistingLines(): PrivateScope, Public, HideBySig, SpecialName
+    set_AutoIndentExistingLines(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_DelayedEventsInterval(): PrivateScope, Public, HideBySig, SpecialName
+    set_DelayedEventsInterval(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_DelayedTextChangedInterval(): PrivateScope, Public, HideBySig, SpecialName
+    set_DelayedTextChangedInterval(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Language(): PrivateScope, Public, HideBySig, SpecialName
+    set_Language(Language): PrivateScope, Public, HideBySig, SpecialName
+    get_SyntaxHighlighter(): PrivateScope, Public, HideBySig, SpecialName
+    set_SyntaxHighlighter(SyntaxHighlighter): PrivateScope, Public, HideBySig, SpecialName
+    get_DescriptionFile(): PrivateScope, Public, HideBySig, SpecialName
+    set_DescriptionFile(String): PrivateScope, Public, HideBySig, SpecialName
+    get_LeftBracketPosition(): PrivateScope, Public, HideBySig, SpecialName
+    get_RightBracketPosition(): PrivateScope, Public, HideBySig, SpecialName
+    get_LeftBracketPosition2(): PrivateScope, Public, HideBySig, SpecialName
+    get_RightBracketPosition2(): PrivateScope, Public, HideBySig, SpecialName
+    get_StartFoldingLine(): PrivateScope, Public, HideBySig, SpecialName
+    get_EndFoldingLine(): PrivateScope, Public, HideBySig, SpecialName
+    get_TextSource(): PrivateScope, Public, HideBySig, SpecialName
+    set_TextSource(TextSource): PrivateScope, Public, HideBySig, SpecialName
+    get_HasSourceTextBox(): PrivateScope, Public, HideBySig, SpecialName
+    get_SourceTextBox(): PrivateScope, Public, HideBySig, SpecialName
+    set_SourceTextBox(FastColoredTextBox): PrivateScope, Public, HideBySig, SpecialName
+    get_VisibleRange(): PrivateScope, Public, HideBySig, SpecialName
+    get_Selection(): PrivateScope, Public, HideBySig, SpecialName
+    set_Selection(Range): PrivateScope, Public, HideBySig, SpecialName
+    get_BackColor(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_BackColor(Color): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_BackBrush(): PrivateScope, Public, HideBySig, SpecialName
+    set_BackBrush(Brush): PrivateScope, Public, HideBySig, SpecialName
+    get_ShowScrollBars(): PrivateScope, Public, HideBySig, SpecialName
+    set_ShowScrollBars(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_AutoCompleteBracketsList(): PrivateScope, Public, HideBySig, SpecialName
+    set_AutoCompleteBracketsList(Char[]): PrivateScope, Public, HideBySig, SpecialName
+    get_AutoCompleteBrackets(): PrivateScope, Public, HideBySig, SpecialName
+    set_AutoCompleteBrackets(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_ServiceColors(): PrivateScope, Public, HideBySig, SpecialName
+    set_ServiceColors(ServiceColors): PrivateScope, Public, HideBySig, SpecialName
+    get_FoldedBlocks(): PrivateScope, Public, HideBySig, SpecialName
+    get_BracketsHighlightStrategy(): PrivateScope, Public, HideBySig, SpecialName
+    set_BracketsHighlightStrategy(BracketsHighlightStrategy): PrivateScope, Public, HideBySig, SpecialName
+    get_WordWrapAutoIndent(): PrivateScope, Public, HideBySig, SpecialName
+    set_WordWrapAutoIndent(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_WordWrapIndent(): PrivateScope, Public, HideBySig, SpecialName
+    set_WordWrapIndent(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MacrosManager(): PrivateScope, Public, HideBySig, SpecialName
+    get_AllowDrop(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_AllowDrop(Boolean): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Hints(): PrivateScope, Public, HideBySig, SpecialName
+    set_Hints(Hints): PrivateScope, Public, HideBySig, SpecialName
+    get_ToolTipDelay(): PrivateScope, Public, HideBySig, SpecialName
+    set_ToolTipDelay(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_ToolTip(): PrivateScope, Public, HideBySig, SpecialName
+    set_ToolTip(ToolTip): PrivateScope, Public, HideBySig, SpecialName
+    get_BookmarkColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_BookmarkColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_Bookmarks(): PrivateScope, Public, HideBySig, SpecialName
+    set_Bookmarks(BaseBookmarks): PrivateScope, Public, HideBySig, SpecialName
+    get_VirtualSpace(): PrivateScope, Public, HideBySig, SpecialName
+    set_VirtualSpace(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_FindEndOfFoldingBlockStrategy(): PrivateScope, Public, HideBySig, SpecialName
+    set_FindEndOfFoldingBlockStrategy(FindEndOfFoldingBlockStrategy): PrivateScope, Public, HideBySig, SpecialName
+    get_AcceptsTab(): PrivateScope, Public, HideBySig, SpecialName
+    set_AcceptsTab(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_AcceptsReturn(): PrivateScope, Public, HideBySig, SpecialName
+    set_AcceptsReturn(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_CaretVisible(): PrivateScope, Public, HideBySig, SpecialName
+    set_CaretVisible(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_CaretBlinking(): PrivateScope, Public, HideBySig, SpecialName
+    set_CaretBlinking(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_ShowCaretWhenInactive(): PrivateScope, Public, HideBySig, SpecialName
+    set_ShowCaretWhenInactive(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_TextAreaBorderColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_TextAreaBorderColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_TextAreaBorder(): PrivateScope, Public, HideBySig, SpecialName
+    set_TextAreaBorder(TextAreaBorderType): PrivateScope, Public, HideBySig, SpecialName
+    get_CurrentLineColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_CurrentLineColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_ChangedLineColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_ChangedLineColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_ForeColor(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_ForeColor(Color): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_CharHeight(): PrivateScope, Public, HideBySig, SpecialName
+    set_CharHeight(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_LineInterval(): PrivateScope, Public, HideBySig, SpecialName
+    set_LineInterval(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_CharWidth(): PrivateScope, Public, HideBySig, SpecialName
+    set_CharWidth(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_TabLength(): PrivateScope, Public, HideBySig, SpecialName
+    set_TabLength(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_IsChanged(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsChanged(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_TextVersion(): PrivateScope, Public, HideBySig, SpecialName
+    get_ReadOnly(): PrivateScope, Public, HideBySig, SpecialName
+    set_ReadOnly(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_ShowLineNumbers(): PrivateScope, Public, HideBySig, SpecialName
+    set_ShowLineNumbers(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_ShowFoldingLines(): PrivateScope, Public, HideBySig, SpecialName
+    set_ShowFoldingLines(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_TextAreaRect(): PrivateScope, Public, HideBySig, SpecialName
+    get_LineNumberColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_LineNumberColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_LineNumberStartValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_LineNumberStartValue(UInt32): PrivateScope, Public, HideBySig, SpecialName
+    get_LineNumberFormatting(): PrivateScope, Public, HideBySig, SpecialName
+    set_LineNumberFormatting(LineNumberFormatting): PrivateScope, Public, HideBySig, SpecialName
+    get_IndentBackColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_IndentBackColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_PaddingBackColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_PaddingBackColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_DisabledColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_DisabledColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_CaretColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_CaretColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_WideCaret(): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.PaintLineEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.PaintEventArgs
+    Void .ctor(Int32, System.Drawing.Rectangle, System.Drawing.Graphics, System.Drawing.Rectangle): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 LineIndex 'get set' : 
+    System.Drawing.Rectangle LineRect 'get set' : 
+  Methods:
+    get_LineIndex(): PrivateScope, Public, HideBySig, SpecialName
+    get_LineRect(): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.LineInsertedEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Index 'get set' : 
+    Int32 Count 'get set' : 
+  Methods:
+    get_Index(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.LineRemovedEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(Int32, Int32, System.Collections.Generic.List`1[System.Int32]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Index 'get set' : 
+    Int32 Count 'get set' : 
+    System.Collections.Generic.List`1[System.Int32] RemovedLineUniqueIds 'get set' : 
+  Methods:
+    get_Index(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_RemovedLineUniqueIds(): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.TextChangedEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(FastColoredTextBoxNS.Range): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    FastColoredTextBoxNS.Range ChangedRange 'get set' : 
+  Methods:
+    get_ChangedRange(): PrivateScope, Public, HideBySig, SpecialName
+    set_ChangedRange(Range): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.TextChangingEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String InsertingText 'get set' : 
+    Boolean Cancel 'get set' : 
+  Methods:
+    get_InsertingText(): PrivateScope, Public, HideBySig, SpecialName
+    set_InsertingText(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Cancel(): PrivateScope, Public, HideBySig, SpecialName
+    set_Cancel(Boolean): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.WordWrapNeededEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(System.Collections.Generic.List`1[System.Int32], Boolean, FastColoredTextBoxNS.Line): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.List`1[System.Int32] CutOffPositions 'get set' : 
+    Boolean ImeAllowed 'get set' : 
+    FastColoredTextBoxNS.Line Line 'get set' : 
+  Methods:
+    get_CutOffPositions(): PrivateScope, Public, HideBySig, SpecialName
+    get_ImeAllowed(): PrivateScope, Public, HideBySig, SpecialName
+    get_Line(): PrivateScope, Public, HideBySig, SpecialName
+Struct FastColoredTextBoxNS.WordWrapMode: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    FastColoredTextBoxNS.WordWrapMode WordWrapControlWidth = 0 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.WordWrapMode WordWrapPreferredWidth = 1 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.WordWrapMode CharWrapControlWidth = 2 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.WordWrapMode CharWrapPreferredWidth = 3 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.WordWrapMode Custom = 4 : Public, Static, Literal, HasDefault
+Class FastColoredTextBoxNS.PrintDialogSettings: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean ShowPageSetupDialog 'get set' : 
+    Boolean ShowPrintDialog 'get set' : 
+    Boolean ShowPrintPreviewDialog 'get set' : 
+    System.String Title 'get set' : 
+    System.String Footer 'get set' : 
+    System.String Header 'get set' : 
+    Boolean IncludeLineNumbers 'get set' : 
+  Methods:
+    get_ShowPageSetupDialog(): PrivateScope, Public, HideBySig, SpecialName
+    set_ShowPageSetupDialog(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_ShowPrintDialog(): PrivateScope, Public, HideBySig, SpecialName
+    set_ShowPrintDialog(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_ShowPrintPreviewDialog(): PrivateScope, Public, HideBySig, SpecialName
+    set_ShowPrintPreviewDialog(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_Title(): PrivateScope, Public, HideBySig, SpecialName
+    set_Title(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Footer(): PrivateScope, Public, HideBySig, SpecialName
+    set_Footer(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Header(): PrivateScope, Public, HideBySig, SpecialName
+    set_Header(String): PrivateScope, Public, HideBySig, SpecialName
+    get_IncludeLineNumbers(): PrivateScope, Public, HideBySig, SpecialName
+    set_IncludeLineNumbers(Boolean): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.AutoIndentEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(Int32, System.String, System.String, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 iLine 'get set' : 
+    Int32 TabLength 'get set' : 
+    System.String LineText 'get set' : 
+    System.String PrevLineText 'get set' : 
+    Int32 Shift 'get set' : 
+    Int32 ShiftNextLines 'get set' : 
+    Int32 AbsoluteIndentation 'get set' : 
+  Methods:
+    get_iLine(): PrivateScope, Public, HideBySig, SpecialName
+    get_TabLength(): PrivateScope, Public, HideBySig, SpecialName
+    get_LineText(): PrivateScope, Public, HideBySig, SpecialName
+    get_PrevLineText(): PrivateScope, Public, HideBySig, SpecialName
+    get_Shift(): PrivateScope, Public, HideBySig, SpecialName
+    set_Shift(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_ShiftNextLines(): PrivateScope, Public, HideBySig, SpecialName
+    set_ShiftNextLines(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_AbsoluteIndentation(): PrivateScope, Public, HideBySig, SpecialName
+    set_AbsoluteIndentation(Int32): PrivateScope, Public, HideBySig, SpecialName
+Struct FastColoredTextBoxNS.HighlightingRangeType: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    FastColoredTextBoxNS.HighlightingRangeType ChangedRange = 0 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.HighlightingRangeType VisibleRange = 1 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.HighlightingRangeType AllTextRange = 2 : Public, Static, Literal, HasDefault
+Struct FastColoredTextBoxNS.FindEndOfFoldingBlockStrategy: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    FastColoredTextBoxNS.FindEndOfFoldingBlockStrategy Strategy1 = 0 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.FindEndOfFoldingBlockStrategy Strategy2 = 1 : Public, Static, Literal, HasDefault
+Struct FastColoredTextBoxNS.BracketsHighlightStrategy: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    FastColoredTextBoxNS.BracketsHighlightStrategy Strategy1 = 0 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.BracketsHighlightStrategy Strategy2 = 1 : Public, Static, Literal, HasDefault
+Class FastColoredTextBoxNS.ToolTipNeededEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(FastColoredTextBoxNS.Place, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    FastColoredTextBoxNS.Place Place 'get set' : 
+    System.String HoveredWord 'get set' : 
+    System.String ToolTipTitle 'get set' : 
+    System.String ToolTipText 'get set' : 
+    System.Windows.Forms.ToolTipIcon ToolTipIcon 'get set' : 
+  Methods:
+    get_Place(): PrivateScope, Public, HideBySig, SpecialName
+    get_HoveredWord(): PrivateScope, Public, HideBySig, SpecialName
+    get_ToolTipTitle(): PrivateScope, Public, HideBySig, SpecialName
+    set_ToolTipTitle(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ToolTipText(): PrivateScope, Public, HideBySig, SpecialName
+    set_ToolTipText(String): PrivateScope, Public, HideBySig, SpecialName
+    get_ToolTipIcon(): PrivateScope, Public, HideBySig, SpecialName
+    set_ToolTipIcon(ToolTipIcon): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.HintClickEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(FastColoredTextBoxNS.Hint): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    FastColoredTextBoxNS.Hint Hint 'get set' : 
+  Methods:
+    get_Hint(): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.CustomActionEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(FastColoredTextBoxNS.FCTBAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    FastColoredTextBoxNS.FCTBAction Action 'get set' : 
+  Methods:
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Struct FastColoredTextBoxNS.TextAreaBorderType: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    FastColoredTextBoxNS.TextAreaBorderType None = 0 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.TextAreaBorderType Single = 1 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.TextAreaBorderType Shadow = 2 : Public, Static, Literal, HasDefault
+Struct FastColoredTextBoxNS.ScrollDirection: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    UInt16 value__ : Public, SpecialName, RTSpecialName
+    FastColoredTextBoxNS.ScrollDirection None = 0 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.ScrollDirection Left = 1 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.ScrollDirection Right = 2 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.ScrollDirection Up = 4 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.ScrollDirection Down = 8 : Public, Static, Literal, HasDefault
+Class FastColoredTextBoxNS.ServiceColors: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Drawing.Color CollapseMarkerForeColor 'get set' : 
+    System.Drawing.Color CollapseMarkerBackColor 'get set' : 
+    System.Drawing.Color CollapseMarkerBorderColor 'get set' : 
+    System.Drawing.Color ExpandMarkerForeColor 'get set' : 
+    System.Drawing.Color ExpandMarkerBackColor 'get set' : 
+    System.Drawing.Color ExpandMarkerBorderColor 'get set' : 
+  Methods:
+    get_CollapseMarkerForeColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_CollapseMarkerForeColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_CollapseMarkerBackColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_CollapseMarkerBackColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_CollapseMarkerBorderColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_CollapseMarkerBorderColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_ExpandMarkerForeColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_ExpandMarkerForeColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_ExpandMarkerBackColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_ExpandMarkerBackColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_ExpandMarkerBorderColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_ExpandMarkerBorderColor(Color): PrivateScope, Public, HideBySig, SpecialName
+Struct FastColoredTextBoxNS.StyleIndex: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    UInt16 value__ : Public, SpecialName, RTSpecialName
+    FastColoredTextBoxNS.StyleIndex None = 0 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.StyleIndex Style0 = 1 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.StyleIndex Style1 = 2 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.StyleIndex Style2 = 4 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.StyleIndex Style3 = 8 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.StyleIndex Style4 = 16 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.StyleIndex Style5 = 32 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.StyleIndex Style6 = 64 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.StyleIndex Style7 = 128 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.StyleIndex Style8 = 256 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.StyleIndex Style9 = 512 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.StyleIndex Style10 = 1024 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.StyleIndex Style11 = 2048 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.StyleIndex Style12 = 4096 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.StyleIndex Style13 = 8192 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.StyleIndex Style14 = 16384 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.StyleIndex Style15 = 32768 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.StyleIndex All = 65535 : Public, Static, Literal, HasDefault
+Class FastColoredTextBoxNS.CommandManager: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(FastColoredTextBoxNS.TextSource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 MaxHistoryLength : Public, Static
+  Properties:
+    FastColoredTextBoxNS.TextSource TextSource 'get set' : 
+    Boolean UndoRedoStackIsEnabled 'get set' : 
+    Boolean UndoEnabled 'get ' : 
+    Boolean RedoEnabled 'get ' : 
+  Events:
+    System.EventHandler RedoCompleted: 
+  Methods:
+    get_TextSource(): PrivateScope, Public, HideBySig, SpecialName
+    get_UndoRedoStackIsEnabled(): PrivateScope, Public, HideBySig, SpecialName
+    set_UndoRedoStackIsEnabled(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    add_RedoCompleted(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_RedoCompleted(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    ExecuteCommand(Command): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Undo(): PrivateScope, Public, HideBySig
+    EndAutoUndoCommands(): PrivateScope, Public, HideBySig
+    BeginAutoUndoCommands(): PrivateScope, Public, HideBySig
+    get_UndoEnabled(): PrivateScope, Public, HideBySig, SpecialName
+    get_RedoEnabled(): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.Command: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  Fields:
+    FastColoredTextBoxNS.TextSource ts : Public
+  Methods:
+    Execute(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class FastColoredTextBoxNS.UndoableCommand: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  :FastColoredTextBoxNS.Command
+    Void .ctor(FastColoredTextBoxNS.TextSource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Undo(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Execute(): PrivateScope, Public, Virtual, HideBySig
+    Clone(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class FastColoredTextBoxNS.InsertCharCommand: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.UndoableCommand
+    Void .ctor(FastColoredTextBoxNS.TextSource, Char): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Char c : Public
+  Methods:
+    Undo(): PrivateScope, Public, Virtual, HideBySig
+    Execute(): PrivateScope, Public, Virtual, HideBySig
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.InsertTextCommand: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.UndoableCommand
+    Void .ctor(FastColoredTextBoxNS.TextSource, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.String InsertedText : Public
+  Methods:
+    Undo(): PrivateScope, Public, Virtual, HideBySig
+    Execute(): PrivateScope, Public, Virtual, HideBySig
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.ReplaceTextCommand: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.UndoableCommand
+    Void .ctor(FastColoredTextBoxNS.TextSource, System.Collections.Generic.List`1[FastColoredTextBoxNS.Range], System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Undo(): PrivateScope, Public, Virtual, HideBySig
+    Execute(): PrivateScope, Public, Virtual, HideBySig
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.ClearSelectedCommand: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.UndoableCommand
+    Void .ctor(FastColoredTextBoxNS.TextSource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Undo(): PrivateScope, Public, Virtual, HideBySig
+    Execute(): PrivateScope, Public, Virtual, HideBySig
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.ReplaceMultipleTextCommand: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.UndoableCommand
+    Void .ctor(FastColoredTextBoxNS.TextSource, System.Collections.Generic.List`1[FastColoredTextBoxNS.ReplaceMultipleTextCommand+ReplaceRange]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Undo(): PrivateScope, Public, Virtual, HideBySig
+    Execute(): PrivateScope, Public, Virtual, HideBySig
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.RemoveLinesCommand: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.UndoableCommand
+    Void .ctor(FastColoredTextBoxNS.TextSource, System.Collections.Generic.List`1[System.Int32]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Undo(): PrivateScope, Public, Virtual, HideBySig
+    Execute(): PrivateScope, Public, Virtual, HideBySig
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.MultiRangeCommand: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.UndoableCommand
+    Void .ctor(FastColoredTextBoxNS.UndoableCommand): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Execute(): PrivateScope, Public, Virtual, HideBySig
+    Undo(): PrivateScope, Public, Virtual, HideBySig
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.SelectCommand: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.UndoableCommand
+    Void .ctor(FastColoredTextBoxNS.TextSource): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Execute(): PrivateScope, Public, Virtual, HideBySig
+    Undo(): PrivateScope, Public, Virtual, HideBySig
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.FindForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(FastColoredTextBoxNS.FastColoredTextBox): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.TextBox tbFind : Public
+  Methods:
+    FindNext(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class FastColoredTextBoxNS.LimitedStack`1[T]: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Type parameter: T
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 MaxItemCount 'get ' : 
+    Int32 Count 'get ' : 
+  Methods:
+    get_MaxItemCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    Pop(): PrivateScope, Public, HideBySig
+    Peek(): PrivateScope, Public, HideBySig
+    Push(T): PrivateScope, Public, HideBySig
+    Clear(): PrivateScope, Public, HideBySig
+    ToArray(): PrivateScope, Public, HideBySig
+Class FastColoredTextBoxNS.Line: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Interfaces:
+    System.Collections.Generic.IList`1[FastColoredTextBoxNS.Char]
+    System.Collections.Generic.ICollection`1[FastColoredTextBoxNS.Char]
+    System.Collections.Generic.IEnumerable`1[FastColoredTextBoxNS.Char]
+    System.Collections.IEnumerable
+  Properties:
+    System.String FoldingStartMarker 'get set' : 
+    System.String FoldingEndMarker 'get set' : 
+    Boolean IsChanged 'get set' : 
+    System.DateTime LastVisit 'get set' : 
+    System.Drawing.Brush BackgroundBrush 'get set' : 
+    Int32 UniqueId 'get set' : 
+    Int32 AutoIndentSpacesNeededCount 'get set' : 
+    System.String Text 'get ' : 
+    Int32 StartSpacesCount 'get ' : 
+    FastColoredTextBoxNS.Char Item [Int32] 'get set' : 
+    Int32 Count 'get ' : 
+    Boolean IsReadOnly 'get ' : 
+  Methods:
+    get_FoldingStartMarker(): PrivateScope, Public, HideBySig, SpecialName
+    set_FoldingStartMarker(String): PrivateScope, Public, HideBySig, SpecialName
+    get_FoldingEndMarker(): PrivateScope, Public, HideBySig, SpecialName
+    set_FoldingEndMarker(String): PrivateScope, Public, HideBySig, SpecialName
+    get_IsChanged(): PrivateScope, Public, HideBySig, SpecialName
+    set_IsChanged(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_LastVisit(): PrivateScope, Public, HideBySig, SpecialName
+    set_LastVisit(DateTime): PrivateScope, Public, HideBySig, SpecialName
+    get_BackgroundBrush(): PrivateScope, Public, HideBySig, SpecialName
+    set_BackgroundBrush(Brush): PrivateScope, Public, HideBySig, SpecialName
+    get_UniqueId(): PrivateScope, Public, HideBySig, SpecialName
+    get_AutoIndentSpacesNeededCount(): PrivateScope, Public, HideBySig, SpecialName
+    set_AutoIndentSpacesNeededCount(Int32): PrivateScope, Public, HideBySig, SpecialName
+    ClearStyle(StyleIndex): PrivateScope, Public, HideBySig
+    get_Text(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    ClearFoldingMarkers(): PrivateScope, Public, HideBySig
+    get_StartSpacesCount(): PrivateScope, Public, HideBySig, SpecialName
+    IndexOf(Char): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Insert(Int32, Char): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    RemoveAt(Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_Item(Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_Item(Int32, Char): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Add(Char): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Clear(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Contains(Char): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    CopyTo(Char[], Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_Count(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_IsReadOnly(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Remove(Char): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    GetEnumerator(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    RemoveRange(Int32, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    TrimExcess(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AddRange(IEnumerable`1): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Struct FastColoredTextBoxNS.LineInfo: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    FastColoredTextBoxNS.VisibleState VisibleState : Public
+  Properties:
+    System.Collections.Generic.List`1[System.Int32] CutOffPositions 'get ' : 
+    Int32 WordWrapStringsCount 'get ' : 
+  Methods:
+    get_CutOffPositions(): PrivateScope, Public, HideBySig, SpecialName
+    get_WordWrapStringsCount(): PrivateScope, Public, HideBySig, SpecialName
+    GetWordWrapStringIndex(Int32): PrivateScope, Public, HideBySig
+Struct FastColoredTextBoxNS.VisibleState: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Byte value__ : Public, SpecialName, RTSpecialName
+    FastColoredTextBoxNS.VisibleState Visible = 0 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.VisibleState StartOfHiddenBlock = 1 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.VisibleState Hidden = 2 : Public, Static, Literal, HasDefault
+Struct FastColoredTextBoxNS.IndentMarker: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    FastColoredTextBoxNS.IndentMarker None = 0 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.IndentMarker Increased = 1 : Public, Static, Literal, HasDefault
+    FastColoredTextBoxNS.IndentMarker Decreased = 2 : Public, Static, Literal, HasDefault
+Struct FastColoredTextBoxNS.Place: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IEquatable`1[FastColoredTextBoxNS.Place]
+  Fields:
+    Int32 iChar : Public
+    Int32 iLine : Public
+  Properties:
+    FastColoredTextBoxNS.Place Empty 'get ' : 
+  Methods:
+    Offset(Int32, Int32): PrivateScope, Public, HideBySig
+    Equals(Place): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Equals(Object): PrivateScope, Public, Virtual, HideBySig
+    GetHashCode(): PrivateScope, Public, Virtual, HideBySig
+    op_Inequality(Place, Place): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Equality(Place, Place): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_LessThan(Place, Place): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_LessThanOrEqual(Place, Place): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_GreaterThan(Place, Place): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_GreaterThanOrEqual(Place, Place): PrivateScope, Public, Static, HideBySig, SpecialName
+    op_Addition(Place, Place): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_Empty(): PrivateScope, Public, Static, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.Range: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(FastColoredTextBoxNS.FastColoredTextBox): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(FastColoredTextBoxNS.FastColoredTextBox, Int32, Int32, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(FastColoredTextBoxNS.FastColoredTextBox, FastColoredTextBoxNS.Place, FastColoredTextBoxNS.Place): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(FastColoredTextBoxNS.FastColoredTextBox, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Generic.IEnumerable`1[FastColoredTextBoxNS.Place]
+    System.Collections.IEnumerable
+  Fields:
+    FastColoredTextBoxNS.FastColoredTextBox tb : Public, InitOnly
+  Properties:
+    Boolean IsEmpty 'get ' : 
+    Boolean ColumnSelectionMode 'get set' : 
+    FastColoredTextBoxNS.Place Start 'get set' : 
+    FastColoredTextBoxNS.Place End 'get set' : 
+    System.String Text 'get ' : 
+    Int32 Length 'get ' : 
+    Int32 TextLength 'get ' : 
+    Char CharAfterStart 'get ' : 
+    Char CharBeforeStart 'get ' : 
+    Int32 FromLine 'get ' : 
+    Int32 ToLine 'get ' : 
+    System.Collections.Generic.IEnumerable`1[FastColoredTextBoxNS.Char] Chars 'get ' : 
+    FastColoredTextBoxNS.RangeRect Bounds 'get ' : 
+    Boolean ReadOnly 'get set' : 
+  Methods:
+    get_IsEmpty(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_ColumnSelectionMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_ColumnSelectionMode(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    Contains(Place): PrivateScope, Public, HideBySig
+    GetIntersectionWith(Range): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetUnionWith(Range): PrivateScope, Public, HideBySig
+    SelectAll(): PrivateScope, Public, HideBySig
+    get_Start(): PrivateScope, Public, HideBySig, SpecialName
+    set_Start(Place): PrivateScope, Public, HideBySig, SpecialName
+    get_End(): PrivateScope, Public, HideBySig, SpecialName
+    set_End(Place): PrivateScope, Public, HideBySig, SpecialName
+    get_Text(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Length(): PrivateScope, Public, HideBySig, SpecialName
+    get_TextLength(): PrivateScope, Public, HideBySig, SpecialName
+    get_CharAfterStart(): PrivateScope, Public, HideBySig, SpecialName
+    get_CharBeforeStart(): PrivateScope, Public, HideBySig, SpecialName
+    GetCharsBeforeStart(Int32): PrivateScope, Public, HideBySig
+    GetCharsAfterStart(Int32): PrivateScope, Public, HideBySig
+    Clone(): PrivateScope, Public, HideBySig
+    get_FromLine(): PrivateScope, Public, HideBySig, SpecialName
+    get_ToLine(): PrivateScope, Public, HideBySig, SpecialName
+    GoRight(): PrivateScope, Public, HideBySig
+    GoRightThroughFolded(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GoLeft(): PrivateScope, Public, HideBySig
+    GoLeftThroughFolded(): PrivateScope, Public, HideBySig
+    GoLeft(Boolean): PrivateScope, Public, HideBySig
+    GoRight(Boolean): PrivateScope, Public, HideBySig
+    SetStyle(Style): PrivateScope, Public, HideBySig
+    SetStyle(Style, String): PrivateScope, Public, HideBySig
+    SetStyle(Style, Regex): PrivateScope, Public, HideBySig
+    SetStyle(Style, String, RegexOptions): PrivateScope, Public, HideBySig
+    SetStyle(StyleIndex, String, RegexOptions): PrivateScope, Public, HideBySig
+    SetStyle(StyleIndex, Regex): PrivateScope, Public, HideBySig
+    SetStyle(StyleIndex): PrivateScope, Public, HideBySig
+    SetFoldingMarkers(String, String): PrivateScope, Public, HideBySig
+    SetFoldingMarkers(String, String, RegexOptions): PrivateScope, Public, HideBySig
+    SetFoldingMarkers(String, RegexOptions): PrivateScope, Public, HideBySig
+    GetRanges(String): PrivateScope, Public, HideBySig
+    GetRanges(String, RegexOptions): PrivateScope, Public, HideBySig
+    GetRangesByLines(String, RegexOptions): PrivateScope, Public, HideBySig
+    GetRangesByLines(Regex): PrivateScope, Public, HideBySig
+    GetRangesByLinesReversed(String, RegexOptions): PrivateScope, Public, HideBySig
+    GetRanges(Regex): PrivateScope, Public, HideBySig
+    ClearStyle(Style[]): PrivateScope, Public, HideBySig
+    ClearStyle(StyleIndex): PrivateScope, Public, HideBySig
+    ClearFoldingMarkers(): PrivateScope, Public, HideBySig
+    BeginUpdate(): PrivateScope, Public, HideBySig
+    EndUpdate(): PrivateScope, Public, HideBySig
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+    Normalize(): PrivateScope, Public, HideBySig
+    Inverse(): PrivateScope, Public, HideBySig
+    Expand(): PrivateScope, Public, HideBySig
+    get_Chars(): PrivateScope, Public, HideBySig, SpecialName
+    GetFragment(String): PrivateScope, Public, HideBySig
+    GetFragment(Style, Boolean): PrivateScope, Public, HideBySig
+    GetFragment(String, RegexOptions): PrivateScope, Public, HideBySig
+    GoWordLeft(Boolean): PrivateScope, Public, HideBySig
+    GoWordRight(Boolean, Boolean(Optional, HasDefault)): PrivateScope, Public, HideBySig
+    ToStyleIndex(Int32): PrivateScope, Public, Static, HideBySig
+    get_Bounds(): PrivateScope, Public, HideBySig, SpecialName
+    GetSubRanges(Boolean): PrivateScope, Public, HideBySig
+    get_ReadOnly(): PrivateScope, Public, HideBySig, SpecialName
+    set_ReadOnly(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    IsReadOnlyLeftChar(): PrivateScope, Public, HideBySig
+    IsReadOnlyRightChar(): PrivateScope, Public, HideBySig
+    GetPlacesCyclic(Place, Boolean(Optional, HasDefault)): PrivateScope, Public, HideBySig
+Struct FastColoredTextBoxNS.RangeRect: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+    Void .ctor(Int32, Int32, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 iStartLine : Public
+    Int32 iStartChar : Public
+    Int32 iEndLine : Public
+    Int32 iEndChar : Public
+Class FastColoredTextBoxNS.Style: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Boolean IsExportable 'get set' : 
+  Events:
+    System.EventHandler`1[FastColoredTextBoxNS.VisualMarkerEventArgs] VisualMarkerClick: 
+  Methods:
+    get_IsExportable(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_IsExportable(Boolean): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    add_VisualMarkerClick(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_VisualMarkerClick(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    Draw(Graphics, Point, Range): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    OnVisualMarkerClick(FastColoredTextBox, VisualMarkerEventArgs): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetSizeOfRange(Range): PrivateScope, Public, Static, HideBySig
+    GetRoundedRectangle(Rectangle, Int32): PrivateScope, Public, Static, HideBySig
+    Dispose(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetCSS(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetRTF(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class FastColoredTextBoxNS.TextStyle: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.Style
+    Void .ctor(System.Drawing.Brush, System.Drawing.Brush, System.Drawing.FontStyle): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Drawing.StringFormat stringFormat : Public
+  Properties:
+    System.Drawing.Brush ForeBrush 'get set' : 
+    System.Drawing.Brush BackgroundBrush 'get set' : 
+    System.Drawing.FontStyle FontStyle 'get set' : 
+  Methods:
+    get_ForeBrush(): PrivateScope, Public, HideBySig, SpecialName
+    set_ForeBrush(Brush): PrivateScope, Public, HideBySig, SpecialName
+    get_BackgroundBrush(): PrivateScope, Public, HideBySig, SpecialName
+    set_BackgroundBrush(Brush): PrivateScope, Public, HideBySig, SpecialName
+    get_FontStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_FontStyle(FontStyle): PrivateScope, Public, HideBySig, SpecialName
+    Draw(Graphics, Point, Range): PrivateScope, Public, Virtual, HideBySig
+    GetCSS(): PrivateScope, Public, Virtual, HideBySig
+    GetRTF(): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.FoldedBlockStyle: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.TextStyle
+    Void .ctor(System.Drawing.Brush, System.Drawing.Brush, System.Drawing.FontStyle): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Draw(Graphics, Point, Range): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.SelectionStyle: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.Style
+    Void .ctor(System.Drawing.Brush, System.Drawing.Brush): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Drawing.Brush BackgroundBrush 'get set' : 
+    System.Drawing.Brush ForegroundBrush 'get set' : 
+    Boolean IsExportable 'get set' : 
+  Methods:
+    get_BackgroundBrush(): PrivateScope, Public, HideBySig, SpecialName
+    set_BackgroundBrush(Brush): PrivateScope, Public, HideBySig, SpecialName
+    get_ForegroundBrush(): PrivateScope, Public, HideBySig, SpecialName
+    get_IsExportable(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_IsExportable(Boolean): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    Draw(Graphics, Point, Range): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.MarkerStyle: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.Style
+    Void .ctor(System.Drawing.Brush): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Drawing.Brush BackgroundBrush 'get set' : 
+  Methods:
+    get_BackgroundBrush(): PrivateScope, Public, HideBySig, SpecialName
+    set_BackgroundBrush(Brush): PrivateScope, Public, HideBySig, SpecialName
+    Draw(Graphics, Point, Range): PrivateScope, Public, Virtual, HideBySig
+    GetCSS(): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.ShortcutStyle: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.Style
+    Void .ctor(System.Drawing.Pen): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Drawing.Pen borderPen : Public
+  Methods:
+    Draw(Graphics, Point, Range): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.WavyLineStyle: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.Style
+    Void .ctor(Int32, System.Drawing.Color): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Draw(Graphics, Point, Range): PrivateScope, Public, Virtual, HideBySig
+    Dispose(): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.ReadOnlyStyle: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.Style
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Draw(Graphics, Point, Range): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.TextSource: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(FastColoredTextBoxNS.FastColoredTextBox): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Generic.IList`1[FastColoredTextBoxNS.Line]
+    System.Collections.Generic.ICollection`1[FastColoredTextBoxNS.Line]
+    System.Collections.Generic.IEnumerable`1[FastColoredTextBoxNS.Line]
+    System.Collections.IEnumerable
+    System.IDisposable
+  Fields:
+    FastColoredTextBoxNS.Style[] Styles : Public, InitOnly
+  Properties:
+    FastColoredTextBoxNS.CommandManager Manager 'get set' : 
+    FastColoredTextBoxNS.FastColoredTextBox CurrentTB 'get set' : 
+    FastColoredTextBoxNS.TextStyle DefaultStyle 'get set' : 
+    FastColoredTextBoxNS.Line Item [Int32] 'get set' : 
+    Boolean IsNeedBuildRemovedLineIds 'get ' : 
+    Int32 Count 'get ' : 
+    Boolean IsReadOnly 'get ' : 
+  Events:
+    System.EventHandler`1[FastColoredTextBoxNS.LineInsertedEventArgs] LineInserted: 
+    System.EventHandler`1[FastColoredTextBoxNS.LineRemovedEventArgs] LineRemoved: 
+    System.EventHandler`1[FastColoredTextBoxNS.TextSource+TextChangedEventArgs] TextChanged: 
+    System.EventHandler`1[FastColoredTextBoxNS.TextSource+TextChangedEventArgs] RecalcNeeded: 
+    System.EventHandler`1[FastColoredTextBoxNS.TextSource+TextChangedEventArgs] RecalcWordWrap: 
+    System.EventHandler`1[FastColoredTextBoxNS.TextChangingEventArgs] TextChanging: 
+    System.EventHandler CurrentTBChanged: 
+  Methods:
+    get_Manager(): PrivateScope, Public, HideBySig, SpecialName
+    set_Manager(CommandManager): PrivateScope, Public, HideBySig, SpecialName
+    add_LineInserted(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_LineInserted(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_LineRemoved(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_LineRemoved(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_TextChanged(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_TextChanged(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_RecalcNeeded(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_RecalcNeeded(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_RecalcWordWrap(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_RecalcWordWrap(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_TextChanging(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_TextChanging(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_CurrentTBChanged(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_CurrentTBChanged(EventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_CurrentTB(): PrivateScope, Public, HideBySig, SpecialName
+    set_CurrentTB(FastColoredTextBox): PrivateScope, Public, HideBySig, SpecialName
+    ClearIsChanged(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CreateLine(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    get_DefaultStyle(): PrivateScope, Public, HideBySig, SpecialName
+    set_DefaultStyle(TextStyle): PrivateScope, Public, HideBySig, SpecialName
+    InitDefaultStyle(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    get_Item(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_Item(Int32, Line): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    IsLineLoaded(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetLines(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetEnumerator(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    BinarySearch(Line, IComparer`1): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GenerateUniqueLineId(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    InsertLine(Int32, Line): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    OnLineInserted(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    OnLineInserted(Int32, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    RemoveLine(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    get_IsNeedBuildRemovedLineIds(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    RemoveLine(Int32, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    OnLineRemoved(Int32, Int32, List`1): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    OnTextChanged(Int32, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    IndexOf(Line): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Insert(Int32, Line): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    RemoveAt(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Add(Line): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clear(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Contains(Line): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    CopyTo(Line[], Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    get_Count(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_IsReadOnly(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Remove(Line): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    NeedRecalc(TextChangedEventArgs): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    OnRecalcWordWrap(TextChangedEventArgs): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    OnTextChanging(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    OnTextChanging(String&): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetLineLength(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    LineHasFoldingStartMarker(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    LineHasFoldingEndMarker(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    SaveToFile(String, Encoding): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class FastColoredTextBoxNS.FileTextSource: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.TextSource
+    Void .ctor(FastColoredTextBoxNS.FastColoredTextBox): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String SaveEOL 'get set' : 
+    FastColoredTextBoxNS.Line Item [Int32] 'get set' : 
+  Events:
+    System.EventHandler`1[FastColoredTextBoxNS.LineNeededEventArgs] LineNeeded: 
+    System.EventHandler`1[FastColoredTextBoxNS.LinePushedEventArgs] LinePushed: 
+  Methods:
+    add_LineNeeded(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_LineNeeded(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    add_LinePushed(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    remove_LinePushed(EventHandler`1): PrivateScope, Public, HideBySig, SpecialName
+    OpenFile(String, Encoding): PrivateScope, Public, HideBySig
+    CloseFile(): PrivateScope, Public, HideBySig
+    get_SaveEOL(): PrivateScope, Public, HideBySig, SpecialName
+    set_SaveEOL(String): PrivateScope, Public, HideBySig, SpecialName
+    SaveToFile(String, Encoding): PrivateScope, Public, Virtual, HideBySig
+    ClearIsChanged(): PrivateScope, Public, Virtual, HideBySig
+    get_Item(Int32): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_Item(Int32, Line): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    InsertLine(Int32, Line): PrivateScope, Public, Virtual, HideBySig
+    RemoveLine(Int32, Int32): PrivateScope, Public, Virtual, HideBySig
+    Clear(): PrivateScope, Public, Virtual, HideBySig
+    GetLineLength(Int32): PrivateScope, Public, Virtual, HideBySig
+    LineHasFoldingStartMarker(Int32): PrivateScope, Public, Virtual, HideBySig
+    LineHasFoldingEndMarker(Int32): PrivateScope, Public, Virtual, HideBySig
+    Dispose(): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.LineNeededEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(System.String, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String SourceLineText 'get set' : 
+    Int32 DisplayedLineIndex 'get set' : 
+    System.String DisplayedLineText 'get set' : 
+  Methods:
+    get_SourceLineText(): PrivateScope, Public, HideBySig, SpecialName
+    get_DisplayedLineIndex(): PrivateScope, Public, HideBySig, SpecialName
+    get_DisplayedLineText(): PrivateScope, Public, HideBySig, SpecialName
+    set_DisplayedLineText(String): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.LinePushedEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(System.String, Int32, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String SourceLineText 'get set' : 
+    Int32 DisplayedLineIndex 'get set' : 
+    System.String DisplayedLineText 'get set' : 
+    System.String SavedText 'get set' : 
+  Methods:
+    get_SourceLineText(): PrivateScope, Public, HideBySig, SpecialName
+    get_DisplayedLineIndex(): PrivateScope, Public, HideBySig, SpecialName
+    get_DisplayedLineText(): PrivateScope, Public, HideBySig, SpecialName
+    get_SavedText(): PrivateScope, Public, HideBySig, SpecialName
+    set_SavedText(String): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.UnfocusablePanel: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.UserControl
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Drawing.Color BackColor2 'get set' : 
+    System.Drawing.Color BorderColor 'get set' : 
+    System.String Text 'get set' : 
+    System.Drawing.StringAlignment TextAlignment 'get set' : 
+  Methods:
+    get_BackColor2(): PrivateScope, Public, HideBySig, SpecialName
+    set_BackColor2(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_BorderColor(): PrivateScope, Public, HideBySig, SpecialName
+    set_BorderColor(Color): PrivateScope, Public, HideBySig, SpecialName
+    get_Text(): PrivateScope, Public, HideBySig, SpecialName
+    set_Text(String): PrivateScope, Public, HideBySig, SpecialName
+    get_TextAlignment(): PrivateScope, Public, HideBySig, SpecialName
+    set_TextAlignment(StringAlignment): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.VisualMarker: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.Drawing.Rectangle): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Drawing.Rectangle rectangle : Public, InitOnly
+  Properties:
+    System.Windows.Forms.Cursor Cursor 'get ' : 
+  Methods:
+    Draw(Graphics, Pen): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    get_Cursor(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+Class FastColoredTextBoxNS.CollapseFoldingMarker: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.VisualMarker
+    Void .ctor(Int32, System.Drawing.Rectangle): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 iLine : Public, InitOnly
+  Methods:
+    Draw(Graphics, Pen, Brush, Pen): PrivateScope, Public, HideBySig
+Class FastColoredTextBoxNS.ExpandFoldingMarker: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.VisualMarker
+    Void .ctor(Int32, System.Drawing.Rectangle): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 iLine : Public, InitOnly
+  Methods:
+    Draw(Graphics, Pen, Brush, Pen): PrivateScope, Public, HideBySig
+Class FastColoredTextBoxNS.FoldedAreaMarker: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.VisualMarker
+    Void .ctor(Int32, System.Drawing.Rectangle): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 iLine : Public, InitOnly
+  Methods:
+    Draw(Graphics, Pen): PrivateScope, Public, Virtual, HideBySig
+Class FastColoredTextBoxNS.StyleVisualMarker: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :FastColoredTextBoxNS.VisualMarker
+    Void .ctor(System.Drawing.Rectangle, FastColoredTextBoxNS.Style): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    FastColoredTextBoxNS.Style Style 'get set' : 
+  Methods:
+    get_Style(): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.VisualMarkerEventArgs: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.MouseEventArgs
+    Void .ctor(FastColoredTextBoxNS.Style, FastColoredTextBoxNS.StyleVisualMarker, System.Windows.Forms.MouseEventArgs): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    FastColoredTextBoxNS.Style Style 'get set' : 
+    FastColoredTextBoxNS.StyleVisualMarker Marker 'get set' : 
+  Methods:
+    get_Style(): PrivateScope, Public, HideBySig, SpecialName
+    get_Marker(): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.ReplaceMultipleTextCommand+ReplaceRange: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    FastColoredTextBoxNS.Range ReplacedRange 'get set' : 
+    System.String ReplaceText 'get set' : 
+  Methods:
+    get_ReplacedRange(): PrivateScope, Public, HideBySig, SpecialName
+    set_ReplacedRange(Range): PrivateScope, Public, HideBySig, SpecialName
+    get_ReplaceText(): PrivateScope, Public, HideBySig, SpecialName
+    set_ReplaceText(String): PrivateScope, Public, HideBySig, SpecialName
+Class FastColoredTextBoxNS.TextSource+TextChangedEventArgs: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 iFromLine : Public
+    Int32 iToLine : Public
