@@ -4,7 +4,7 @@
 #include <string.h>
 #include <sstream>
 #include <fstream>
-#include <bits/stdc++.h>
+#include <map>
 using namespace std;
 
 int iBeautify = 0 ;
@@ -38,7 +38,7 @@ struct Node
 {
     string key;
     string value;
-    vector<string> attr;
+    map<string,string> attr;
     vector<Node*> child;
     Node* parent;
 
@@ -77,11 +77,13 @@ public:
 
         string att;
 
-        vector<string>::iterator itAttr = tmp->attr.begin();
+        map<string,string>::iterator itAttr = tmp->attr.begin();
         while(itAttr != tmp->attr.end())
         {
             att+=" ";
-            att += *itAttr;
+            att += itAttr->first;
+            att+="=";
+            att += itAttr->second;
             itAttr++;
         }
 
@@ -243,22 +245,24 @@ int main()
 
     string xmlCode;
     GeneralTree tree;
-    vector<string> seglist;
+    vector<string> seglist1;
+    vector<string> seglist2;
+
     string segment;
     stringstream ss;
-    vector<string> att;
+    map<string, string> att;
 
-    string allFile;
-    ifstream file("C:\\Users\\ju\\Desktop\\xml.txt");
-    copy( istream_iterator<char>{ file >> noskipws }, {}, back_inserter( allFile ) );
-    file.close();
+//    string allFile;
+//    ifstream file("C:\\Users\\ju\\Desktop\\xml.txt");
+//    copy( istream_iterator<char>{ file >> noskipws }, {}, back_inserter( allFile ) );
+//    file.close();
 
 
 
 //    <employees><employee><id>1</id><firstName>Leonardo</firstName><lastName>DiCaprio</lastName><photo>http://1.bp.blogspot.com/-zvS_6Q1IzR8/T5l6qvnRmcI/AAAAAAAABcc/HXO7HDEJKo0/s200/Leonardo+Dicaprio7.jpg</photo></employee><employee><id>2</id><firstName>Johnny</firstName><lastName>Depp</lastName><photo>http://4.bp.blogspot.com/_xR71w9-qx9E/SrAz--pu0MI/AAAAAAAAC38/2ZP28rVEFKc/s200/johnny-depp-pirates.jpg</photo></employee><employee><id>3</id><firstName>Hritik</firstName><lastName>Roshan</lastName><photo>http://thewallmachine.com/files/1411921557.jpg</photo></employee></employees>
 
-    //xmlCode = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><employees><employee><id>1</id><firstName>Leonardo</firstName><lastName>DiCaprio</lastName><photo>http://1.bp.blogspot.com/-zvS_6Q1IzR8/T5l6qvnRmcI/AAAAAAAABcc/HXO7HDEJKo0/s200/Leonardo+Dicaprio7.jpg</photo></employee><employee><id>2</id><firstName>Johnny</firstName><lastName>Depp</lastName><photo>http://4.bp.blogspot.com/_xR71w9-qx9E/SrAz--pu0MI/AAAAAAAAC38/2ZP28rVEFKc/s200/johnny-depp-pirates.jpg</photo></employee><employee><id>3</id><firstName>Hritik</firstName><lastName>Roshan</lastName><photo>http://thewallmachine.com/files/1411921557.jpg</photo></employee></employees>";
-    xmlCode = allFile;
+    xmlCode = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><employees><employee><id class=\"mohanad\">1</id><firstName>Leonardo</firstName><lastName>DiCaprio</lastName><photo>http://1.bp.blogspot.com/-zvS_6Q1IzR8/T5l6qvnRmcI/AAAAAAAABcc/HXO7HDEJKo0/s200/Leonardo+Dicaprio7.jpg</photo></employee><employee><id>2</id><firstName>Johnny</firstName><lastName>Depp</lastName><photo>http://4.bp.blogspot.com/_xR71w9-qx9E/SrAz--pu0MI/AAAAAAAAC38/2ZP28rVEFKc/s200/johnny-depp-pirates.jpg</photo></employee><employee><id>3</id><firstName>Hritik</firstName><lastName>Roshan</lastName><photo>http://thewallmachine.com/files/1411921557.jpg</photo></employee></employees>";
+//    xmlCode = allFile;
     rtrim(xmlCode);
     ltrim(xmlCode);
     bool rootTag = true;
@@ -276,6 +280,7 @@ int main()
         if (xmlCode[i] == '<' && xmlCode[i+1] != '/')
         {
             int endTag;
+            int equalCheck;
             string tagNameAttr;
             string tagName;
             endTag = xmlCode.find('>',i);
@@ -284,19 +289,57 @@ int main()
             string segment;
             vector<string> seglist;
 
+            equalCheck = xmlCode.find('=',i);
+            if (equalCheck > endTag)
+                equalCheck =-1;
+            
+            if(equalCheck != -1)
+            {
+                while(getline(ss, segment, '='))
+                {
+                   seglist1.push_back(segment);
+                }
+                
+                vector<string>::iterator it = seglist1.begin();
+                while(it != seglist1.end())
+                {
+                    stringstream ss2(*it);
+                    string segment2;
+                while(getline(ss2, segment2, ' '))
+                {
+                   seglist2.push_back(segment2);
+                }
+                    
+                    it++;
+
+                }
+                vector<string>::iterator it2 = seglist2.begin();
+                tagName = *it2;
+                it2++;
+                while(it2 != seglist2.end())
+                {
+                    att.insert(pair<string,string>(*it2,*(++it2)));
+                    it2++;
+                }
+                
+                  
+            }
+            else{
 
             while(getline(ss, segment, ' '))
             {
-               seglist.push_back(segment);
+               seglist1.push_back(segment);
             }
-            vector<string>::iterator it = seglist.begin();
+            vector<string>::iterator it = seglist1.begin();
             tagName = *it;
             it++;
-            while(it != seglist.end())
+            while(it != seglist1.end())
             {
-                att.push_back(*it);
+                att.insert(pair<string,string>(*it,*(++it)));
                 it++;
 
+            }
+                
             }
 
             Node* node = new Node;
@@ -308,13 +351,16 @@ int main()
             {
                 tree.newNode(node, true);
                 rootTag = false;
-                seglist.clear();
+                seglist1.clear();
+                seglist2.clear();
                 att.clear();
             }
             else
             {
                 tree.newNode(node, false);
-                seglist.clear();
+                seglist1.clear();
+                seglist2.clear();
+
                 att.clear();
             }
         }
@@ -340,11 +386,11 @@ int main()
 
     }
 
-    //tree.beautify();
+    tree.beautify();
 
 
 
-    cout<<tree.convertJson();
+//    cout<<tree.convertJson();
     cout<<endl;
     return 0;
 }
