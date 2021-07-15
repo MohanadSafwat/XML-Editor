@@ -5,6 +5,7 @@
 #include <sstream>
 #include <fstream>
 #include <map>
+#include <bits/stdc++.h>
 using namespace std;
 
 int iBeautify = 0 ;
@@ -72,7 +73,7 @@ public:
 
         returnString2+=beautifyPriv(this->root);
         return  returnString2;
-        
+
     }
     string beautifyPriv(Node* node)
     {
@@ -143,7 +144,7 @@ public:
 
         returnString2+=minifyPriv(this->root);
         return  returnString2;
-        
+
     }
     string minifyPriv(Node* node)
     {
@@ -221,7 +222,6 @@ public:
         //cout<<"---"<<prevTag;
         if(tmp->key != prevTag){
             json<<endl<<string(iBeautify+1,'\t')<<"\""<<tmp->key<<"\":";
-
         }
         if( tmp!=root && counter < tmp->parent->child.size()-1 &&tmp->key == tmp->parent->child[counter+1]->key && tmp->key != prevTag){
             json<<"[";
@@ -236,7 +236,42 @@ public:
 
         if((tmp->child).size() != 0){
 
+
+            string str = tmp->attr;
+            rtrim(str);
+            ltrim(str);
+            str.insert(0,"\"");
+            int len = str.length()-1;
+            for(int i = 0;i<len;i++){
+                if(str[i] == ' ' && str[i+1] == ' '){
+                    str.erase(i,1);
+                    i--;
+                    len--;
+                }
+            }
+            //cout<<str<<endl;
+            for(int i = 0;i<str.length();i++){
+                if(str[i] == '='){
+
+                    str[i] = ':';
+                    str.insert(i,"\"");
+                    if(str[i-1]=' '){
+                        str.erase(i-1,1);
+                    }
+                }
+                if(str[i] == ' '&& str[i-1] == '\"' ){
+                    str[i] = ',';
+                    str.insert(i+1,"\"");
+                    str.insert(i+1,string(iBeautify+2,'\t'));
+                    str.insert(i+1,"\n");
+                }
+            }
+            str.insert(str.end(),',');
+
             json<<"{"<<tmp->value;
+            if(tmp->attr.length() > 1){
+                json<<endl<<string(iBeautify+2,'\t')<<str;
+            }
             tmpCounter = counter;
             counter = 0;
             tmpTag.push_back(prevTag);
@@ -273,7 +308,7 @@ public:
             counter = tmpCounter+1;
             prevTag = tmpTag[tmpTag.size()-1];
             tmpTag.pop_back();
-            if(tmp->key ==prevTag && counter == (tmp->parent->child).size()) ss<<"]";
+            if(tmp->key ==prevTag && counter == (tmp->parent->child).size()) json<<"]";
             if(nodePointerBeautify != root )
                 if(counter2 != (nodePointerBeautify->parent->child).size()-1 && nodePointerBeautify->parent == root){
                     //cout<<counter2 <<"    " << (nodePointerBeautify->parent->child).size()<< "   " << (nodePointerBeautify->parent == root) ;
@@ -316,7 +351,7 @@ void GeneralTree::newNode(Node* &node,bool rootCheck)
 }
 
 GeneralTree createTree(string xmlCode){
-    
+
     GeneralTree tree;
     vector<string> seglist1;
     vector<string> seglist2;
@@ -326,7 +361,7 @@ GeneralTree createTree(string xmlCode){
     vector<string> att;
     string attr;
 
-    
+
     bool rootTag = true;
     for(int i = 0 ; i< xmlCode.length(); i++)
     {
@@ -354,7 +389,7 @@ GeneralTree createTree(string xmlCode){
 //            equalCheck = xmlCode.find('=',i);
 //            if (equalCheck > endTag)
 //                equalCheck =-1;
-            
+
 //            if(equalCheck != -1)
 //            {
 //                while(getline(ss, segment, '='))
@@ -395,7 +430,7 @@ GeneralTree createTree(string xmlCode){
             vector<string>::iterator it = seglist.begin();
             tagName = *it;
             it++;
-            
+
             while(it != seglist.end())
             {
                 att.push_back(*it);
@@ -404,15 +439,15 @@ GeneralTree createTree(string xmlCode){
             }
             vector<string>::iterator it2 = att.begin();
 
-            
+
             while(it2 != att.end())
             {
                 attr+=" ";
                 attr += *it2;
-         
+
                 it2++;
             }
-                
+
 //            }
 
             Node* node = new Node;
@@ -462,7 +497,7 @@ GeneralTree createTree(string xmlCode){
 
 
     }
-    
+
     return tree;
 }
 
@@ -475,10 +510,10 @@ int main()
     string xmlCode;
     GeneralTree tree;
 
- 
+
 
     string allFile;
-    ifstream file("/Users/mohanadsafwat/Downloads/test2.xml");
+    ifstream file("C:\\Users\\ju\\Desktop\\xml.txt");
     copy( istream_iterator<char>{ file >> noskipws }, {}, back_inserter( allFile ) );
     file.close();
 
@@ -488,22 +523,21 @@ int main()
 
 //    xmlCode = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><employees><employee><id class=\"mohanad\" class2=\"mohanad2\">1</id><firstName>Leonardo</firstName><lastName>DiCaprio</lastName><photo>http://1.bp.blogspot.com/-zvS_6Q1IzR8/T5l6qvnRmcI/AAAAAAAABcc/HXO7HDEJKo0/s200/Leonardo+Dicaprio7.jpg</photo></employee><employee><id>2</id><firstName>Johnny</firstName><lastName>Depp</lastName><photo>http://4.bp.blogspot.com/_xR71w9-qx9E/SrAz--pu0MI/AAAAAAAAC38/2ZP28rVEFKc/s200/johnny-depp-pirates.jpg</photo></employee><employee><id>3</id><firstName>Hritik</firstName><lastName>Roshan</lastName><photo>http://thewallmachine.com/files/1411921557.jpg</photo></employee></employees>";
     xmlCode = allFile;
-    
-    
-    
+
+
+
 //    cin>>xmlCode;
     rtrim(xmlCode);
     ltrim(xmlCode);
     tree = createTree(xmlCode);
- 
-
-   cout<< tree.beautify();
-    cout<< tree.beautify();
 
 
-    cout<<tree.minify();
+    //cout<< tree.beautify();
 
-//    cout<<tree.convertJson();
+
+    //cout<<tree.minify();
+
+    cout<<tree.convertJson();
     cout<<endl;
     return 0;
 }
