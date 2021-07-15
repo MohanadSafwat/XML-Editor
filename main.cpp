@@ -14,6 +14,7 @@ bool checker=false;
 stringstream json;
 string prevTag = "";
 vector<string> tmpTag;
+string return_string;
 
 static inline void ltrim(string &s) {
     s.erase(s.begin(), find_if(s.begin(), s.end(), [](unsigned char ch) {
@@ -55,26 +56,32 @@ public:
     GeneralTree();
     void newNode(Node* &node, bool rootCheck);
 
-    void beautify(){
+    string beautify(){
+        iBeautify = 0 ;
+        return_string="";
+        string returnString2;
         vector<string>::iterator it = start.begin();
         int size = start.size();
         for (it; it != start.end() ; it++) {
-            cout<<*it;
+            returnString2+=*it;
             size--;
             if(size != 0)
-                cout<<endl;
+                returnString2+='\n';
 
         }
 
-        beautifyPriv(this->root);
+        returnString2+=beautifyPriv(this->root);
+        return  returnString2;
+        
     }
-    void beautifyPriv(Node* node)
+    string beautifyPriv(Node* node)
     {
          Node* tmp = node;
         Node* nodePointerBeautify =tmp;
         if (tmp==NULL)
-            return;
-
+        {
+            return "";
+        }
         string att;
 
         map<string,string>::iterator itAttr = tmp->attr.begin();
@@ -88,7 +95,7 @@ public:
         }
 
 
-        cout<<endl<<string(iBeautify,'\t')<<"<"<<tmp->key<<att<<">"<<tmp->value;
+        return_string+='\n'+string(iBeautify,'\t')+"<"+tmp->key+att+">"+tmp->value;
         att="";
         iBeautify++;
         vector<Node *>::iterator it = (tmp->child).begin();
@@ -105,16 +112,17 @@ public:
 
 
             }
-            cout<<endl<<string(iBeautify-1,'\t')<<"</"<<nodePointerBeautify->key<<">";
+            return_string+='\n'+string(iBeautify-1,'\t')+"</"+nodePointerBeautify->key+">";
 
         }
         else
         {
-            cout<<"</"<<tmp->key<<">";
+            return_string+="</"+tmp->key+">";
             nodePointerBeautify = nodePointerBeautify->parent;
 
 
         }
+        return return_string;
 
     }
 
@@ -124,7 +132,8 @@ public:
 
 
     string convertJson(){
-
+        json.str("");
+        iBeautify = 0 ;
         json<<"{";
         convertJsonPriv(this->root);
         json<<endl<<"}"<<endl;
@@ -360,6 +369,8 @@ GeneralTree createTree(string xmlCode){
             string tagValue;
             endTag = xmlCode.find('<',i);
             tagValue = xmlCode.substr(i, endTag - i);
+            ltrim(tagValue);
+            rtrim(tagValue);
             tree.nodePointer->value = tagValue;
             i = endTag -1 ;
         }
@@ -382,29 +393,34 @@ int main()
 
  
 
-//    string allFile;
-//    ifstream file("C:\\Users\\ju\\Desktop\\xml.txt");
-//    copy( istream_iterator<char>{ file >> noskipws }, {}, back_inserter( allFile ) );
-//    file.close();
+    string allFile;
+    ifstream file("/Users/mohanadsafwat/Downloads/test2.xml");
+    copy( istream_iterator<char>{ file >> noskipws }, {}, back_inserter( allFile ) );
+    file.close();
 
 
 
 //    <employees><employee><id>1</id><firstName>Leonardo</firstName><lastName>DiCaprio</lastName><photo>http://1.bp.blogspot.com/-zvS_6Q1IzR8/T5l6qvnRmcI/AAAAAAAABcc/HXO7HDEJKo0/s200/Leonardo+Dicaprio7.jpg</photo></employee><employee><id>2</id><firstName>Johnny</firstName><lastName>Depp</lastName><photo>http://4.bp.blogspot.com/_xR71w9-qx9E/SrAz--pu0MI/AAAAAAAAC38/2ZP28rVEFKc/s200/johnny-depp-pirates.jpg</photo></employee><employee><id>3</id><firstName>Hritik</firstName><lastName>Roshan</lastName><photo>http://thewallmachine.com/files/1411921557.jpg</photo></employee></employees>
 
-    xmlCode = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><employees><employee><id class=\"mohanad\" class2=\"mohanad2\">1</id><firstName>Leonardo</firstName><lastName>DiCaprio</lastName><photo>http://1.bp.blogspot.com/-zvS_6Q1IzR8/T5l6qvnRmcI/AAAAAAAABcc/HXO7HDEJKo0/s200/Leonardo+Dicaprio7.jpg</photo></employee><employee><id>2</id><firstName>Johnny</firstName><lastName>Depp</lastName><photo>http://4.bp.blogspot.com/_xR71w9-qx9E/SrAz--pu0MI/AAAAAAAAC38/2ZP28rVEFKc/s200/johnny-depp-pirates.jpg</photo></employee><employee><id>3</id><firstName>Hritik</firstName><lastName>Roshan</lastName><photo>http://thewallmachine.com/files/1411921557.jpg</photo></employee></employees>";
-//    xmlCode = allFile;
+//    xmlCode = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><employees><employee><id class=\"mohanad\" class2=\"mohanad2\">1</id><firstName>Leonardo</firstName><lastName>DiCaprio</lastName><photo>http://1.bp.blogspot.com/-zvS_6Q1IzR8/T5l6qvnRmcI/AAAAAAAABcc/HXO7HDEJKo0/s200/Leonardo+Dicaprio7.jpg</photo></employee><employee><id>2</id><firstName>Johnny</firstName><lastName>Depp</lastName><photo>http://4.bp.blogspot.com/_xR71w9-qx9E/SrAz--pu0MI/AAAAAAAAC38/2ZP28rVEFKc/s200/johnny-depp-pirates.jpg</photo></employee><employee><id>3</id><firstName>Hritik</firstName><lastName>Roshan</lastName><photo>http://thewallmachine.com/files/1411921557.jpg</photo></employee></employees>";
+    xmlCode = allFile;
     
     
+    
+//    cin>>xmlCode;
     rtrim(xmlCode);
     ltrim(xmlCode);
     tree = createTree(xmlCode);
  
 
-    tree.beautify();
+//   cout<< tree.beautify();
+//    cout<< tree.beautify();
 
 
 
-//    cout<<tree.convertJson();
+    cout<<tree.convertJson();
+
+    cout<<tree.convertJson();
     cout<<endl;
     return 0;
 }
