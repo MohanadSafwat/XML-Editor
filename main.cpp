@@ -237,13 +237,8 @@ void GeneralTree::newNode(Node* &node,bool rootCheck)
 
 }
 
-
-
-// Driver program
-int main()
-{
-
-    string xmlCode;
+GeneralTree createTree(string xmlCode){
+    
     GeneralTree tree;
     vector<string> seglist1;
     vector<string> seglist2;
@@ -251,20 +246,7 @@ int main()
     string segment;
     stringstream ss;
     map<string, string> att;
-
-//    string allFile;
-//    ifstream file("C:\\Users\\ju\\Desktop\\xml.txt");
-//    copy( istream_iterator<char>{ file >> noskipws }, {}, back_inserter( allFile ) );
-//    file.close();
-
-
-
-//    <employees><employee><id>1</id><firstName>Leonardo</firstName><lastName>DiCaprio</lastName><photo>http://1.bp.blogspot.com/-zvS_6Q1IzR8/T5l6qvnRmcI/AAAAAAAABcc/HXO7HDEJKo0/s200/Leonardo+Dicaprio7.jpg</photo></employee><employee><id>2</id><firstName>Johnny</firstName><lastName>Depp</lastName><photo>http://4.bp.blogspot.com/_xR71w9-qx9E/SrAz--pu0MI/AAAAAAAAC38/2ZP28rVEFKc/s200/johnny-depp-pirates.jpg</photo></employee><employee><id>3</id><firstName>Hritik</firstName><lastName>Roshan</lastName><photo>http://thewallmachine.com/files/1411921557.jpg</photo></employee></employees>
-
-    xmlCode = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><employees><employee><id class=\"mohanad\">1</id><firstName>Leonardo</firstName><lastName>DiCaprio</lastName><photo>http://1.bp.blogspot.com/-zvS_6Q1IzR8/T5l6qvnRmcI/AAAAAAAABcc/HXO7HDEJKo0/s200/Leonardo+Dicaprio7.jpg</photo></employee><employee><id>2</id><firstName>Johnny</firstName><lastName>Depp</lastName><photo>http://4.bp.blogspot.com/_xR71w9-qx9E/SrAz--pu0MI/AAAAAAAAC38/2ZP28rVEFKc/s200/johnny-depp-pirates.jpg</photo></employee><employee><id>3</id><firstName>Hritik</firstName><lastName>Roshan</lastName><photo>http://thewallmachine.com/files/1411921557.jpg</photo></employee></employees>";
-//    xmlCode = allFile;
-    rtrim(xmlCode);
-    ltrim(xmlCode);
+    
     bool rootTag = true;
     for(int i = 0 ; i< xmlCode.length(); i++)
     {
@@ -385,6 +367,38 @@ int main()
 
 
     }
+    
+    return tree;
+}
+
+
+
+// Driver program
+int main()
+{
+
+    string xmlCode;
+    GeneralTree tree;
+
+ 
+
+//    string allFile;
+//    ifstream file("C:\\Users\\ju\\Desktop\\xml.txt");
+//    copy( istream_iterator<char>{ file >> noskipws }, {}, back_inserter( allFile ) );
+//    file.close();
+
+
+
+//    <employees><employee><id>1</id><firstName>Leonardo</firstName><lastName>DiCaprio</lastName><photo>http://1.bp.blogspot.com/-zvS_6Q1IzR8/T5l6qvnRmcI/AAAAAAAABcc/HXO7HDEJKo0/s200/Leonardo+Dicaprio7.jpg</photo></employee><employee><id>2</id><firstName>Johnny</firstName><lastName>Depp</lastName><photo>http://4.bp.blogspot.com/_xR71w9-qx9E/SrAz--pu0MI/AAAAAAAAC38/2ZP28rVEFKc/s200/johnny-depp-pirates.jpg</photo></employee><employee><id>3</id><firstName>Hritik</firstName><lastName>Roshan</lastName><photo>http://thewallmachine.com/files/1411921557.jpg</photo></employee></employees>
+
+    xmlCode = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><employees><employee><id class=\"mohanad\" class2=\"mohanad2\">1</id><firstName>Leonardo</firstName><lastName>DiCaprio</lastName><photo>http://1.bp.blogspot.com/-zvS_6Q1IzR8/T5l6qvnRmcI/AAAAAAAABcc/HXO7HDEJKo0/s200/Leonardo+Dicaprio7.jpg</photo></employee><employee><id>2</id><firstName>Johnny</firstName><lastName>Depp</lastName><photo>http://4.bp.blogspot.com/_xR71w9-qx9E/SrAz--pu0MI/AAAAAAAAC38/2ZP28rVEFKc/s200/johnny-depp-pirates.jpg</photo></employee><employee><id>3</id><firstName>Hritik</firstName><lastName>Roshan</lastName><photo>http://thewallmachine.com/files/1411921557.jpg</photo></employee></employees>";
+//    xmlCode = allFile;
+    
+    
+    rtrim(xmlCode);
+    ltrim(xmlCode);
+    tree = createTree(xmlCode);
+ 
 
     tree.beautify();
 
